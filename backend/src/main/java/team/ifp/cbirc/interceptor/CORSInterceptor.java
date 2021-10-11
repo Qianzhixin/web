@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
+ * 跨域拦截器
  */
 
 public class CORSInterceptor implements HandlerInterceptor {

@@ -3,7 +3,7 @@ package team.ifp.cbirc.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import team.ifp.cbirc._enum.RegulationState;
-import team.ifp.cbirc.po.ExternalRegulation;
+import team.ifp.cbirc.entity.ExternalRegulation;
 import team.ifp.cbirc.util.FileUtil;
 
 import java.util.Date;
@@ -11,6 +11,7 @@ import java.util.Date;
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
+ * 法规实体完整VO
  */
 
 @Data

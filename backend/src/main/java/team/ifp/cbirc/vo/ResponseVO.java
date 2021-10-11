@@ -1,45 +1,47 @@
 package team.ifp.cbirc.vo;
 
 import lombok.Data;
+import team.ifp.cbirc.exception.BadRequestException;
 
 @Data
 public class ResponseVO {
 
-    /**
-     * 调用是否成功
-     */
-    private Boolean success;
+    private ResponseVO(){};
 
-    /**
-     * 返回的提示信息
-     */
-    private String message;
-
-    /**
-     * 内容
-     */
     private Object content;
 
-    public static ResponseVO buildSuccess(){
-        ResponseVO response=new ResponseVO();
-        response.setSuccess(true);
-        return response;
+    /**
+     * OK 200
+     * @return
+     */
+    public static ResponseVO buildOK(){
+        return new ResponseVO();
     }
 
-    public static ResponseVO buildSuccess(Object content){
-        ResponseVO response=new ResponseVO();
+    /**
+     * OK 200
+     * @param content
+     * @return
+     */
+    public static ResponseVO buildOK(Object content){
+        ResponseVO response = new ResponseVO();
         response.setContent(content);
-        response.setSuccess(true);
         return response;
     }
 
-    public static ResponseVO buildFailure(String message){
-        ResponseVO response=new ResponseVO();
-        response.setSuccess(false);
-        response.setMessage(message);
-//        System.out.println(message);
-        return response;
+    /**
+     * Internet Server Error 500
+     * @param message
+     */
+    public static void buildInternetServerError(String message){
+        throw new RuntimeException(message);
     }
 
+    /**
+     * Bad Request 400
+     */
+    public static void buildBadRequest(String message) {
+        throw new BadRequestException(message);
+    }
 
 }

@@ -1,4 +1,4 @@
-package team.ifp.cbirc.po;
+package team.ifp.cbirc.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Cleanup;
@@ -12,6 +12,7 @@ import java.util.Date;
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
+ * external_regulation表实体类
  */
 @Entity
 @Table(name = "external_regulation")
