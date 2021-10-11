@@ -45,6 +45,8 @@ public class ExternalRegulationRepositoryTest {
         SearchRegulationVO searchRegulationVO = new SearchRegulationVO();
         searchRegulationVO.setTitle("测试法规1");
         searchRegulationVO.setEffectivenessLevel(1);
+        searchRegulationVO.setBegin(0);
+        searchRegulationVO.setLen(0);
 
         SearchRegulationPO searchRegulationPO = new SearchRegulationPO(searchRegulationVO);
 

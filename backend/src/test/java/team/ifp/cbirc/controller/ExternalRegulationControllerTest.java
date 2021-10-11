@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import team.ifp.cbirc.MockMvcManager;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
@@ -29,11 +30,24 @@ public class ExternalRegulationControllerTest {
 
     MockMvc mockMvc;
 
-    final static MockHttpSession session = new MockHttpSession();
+    MockHttpSession session;
 
     @BeforeEach
-    public void setupMockMvc()throws Exception{
-        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();//初始化MockMvc对象
+    public void beforeEach() throws Exception{
+
+        System.out.println("before each");
+        //初始化MockMvc对象
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+        session = new MockHttpSession();
+
+        //进行登录
+        MockMvcManager.login(mockMvc,session);
+    }
+
+    @AfterEach
+    public void afterEach() throws Exception {
+        System.out.println("after each");
+        MockMvcManager.logout(mockMvc,session);
     }
 
     @Test
@@ -49,11 +63,13 @@ public class ExternalRegulationControllerTest {
         requestJsonObj.put("state","UNPUBLISHED");
 
         String requestBody = requestJsonObj.toJSONString();
-        MvcResult mvcResult=mockMvc.perform(post("/externalRegulation/search").
-                contentType(MediaType.APPLICATION_JSON).
-                content(requestBody).accept(MediaType.APPLICATION_JSON).session(session)).
-                andExpect(MockMvcResultMatchers.status().isOk()).
-                andReturn();
+        MvcResult mvcResult = mockMvc.perform(post("/externalRegulation/search")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody)
+                .accept(MediaType.APPLICATION_JSON)
+                .session(session))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
 
         MockHttpServletResponse response = mvcResult.getResponse();
         response.setCharacterEncoding("UTF-8");
@@ -62,5 +78,9 @@ public class ExternalRegulationControllerTest {
 
         Assertions.assertEquals(1,contentObj.get("id"));
     }
+
+    @Test
+    @Order(2)
+    public void a(){}
 
 }

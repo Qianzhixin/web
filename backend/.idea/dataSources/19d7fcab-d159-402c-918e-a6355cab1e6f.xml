@@ -912,87 +912,126 @@ SELECT|sys.sys_config
     <table id="284" parent="3" name="external_regulation">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <column id="285" parent="284" name="id">
+    <table id="285" parent="3" name="user"/>
+    <column id="286" parent="284" name="id">
       <Position>1</Position>
       <Comment>主键</Comment>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="286" parent="284" name="title">
+    <column id="287" parent="284" name="title">
       <Position>2</Position>
       <Comment>法规标题</Comment>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="287" parent="284" name="number">
+    <column id="288" parent="284" name="number">
       <Position>3</Position>
       <Comment>法规文号</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="288" parent="284" name="type">
+    <column id="289" parent="284" name="type">
       <Position>4</Position>
       <Comment>外规类别</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="289" parent="284" name="publishing_department">
+    <column id="290" parent="284" name="publishing_department">
       <Position>5</Position>
       <Comment>发文部门</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="290" parent="284" name="effectiveness_level">
+    <column id="291" parent="284" name="effectiveness_level">
       <Position>6</Position>
       <Comment>效力等级</Comment>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="291" parent="284" name="release_date">
+    <column id="292" parent="284" name="release_date">
       <Position>7</Position>
       <Comment>发布日期</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="292" parent="284" name="implementation_date">
+    <column id="293" parent="284" name="implementation_date">
       <Position>8</Position>
       <Comment>实施日期</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="293" parent="284" name="interpretation_department">
+    <column id="294" parent="284" name="interpretation_department">
       <Position>9</Position>
       <Comment>解读部门</Comment>
       <DataType>varchar(20)|0s</DataType>
     </column>
-    <column id="294" parent="284" name="input_person">
+    <column id="295" parent="284" name="input_person">
       <Position>10</Position>
       <Comment>录入人</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="295" parent="284" name="input_date">
+    <column id="296" parent="284" name="input_date">
       <Position>11</Position>
       <Comment>录入时间</Comment>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="296" parent="284" name="text_path">
+    <column id="297" parent="284" name="text_path">
       <Position>12</Position>
       <Comment>正文文件路径</Comment>
       <DataType>varchar(260)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="297" parent="284" name="state">
+    <column id="298" parent="284" name="state">
       <Position>13</Position>
       <Comment>法规是否发布,0为未发布,1为发布</Comment>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="298" parent="284" name="PRIMARY">
+    <index id="299" parent="284" name="id">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="300" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="301" parent="284" name="id">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id</UnderlyingIndexName>
+    </key>
+    <column id="302" parent="285" name="id">
+      <Position>1</Position>
+      <Comment>主键</Comment>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="303" parent="285" name="username">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>ucs2_general_ci</Collation>
+    </column>
+    <column id="304" parent="285" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="305" parent="285" name="id">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="306" parent="285" name="id">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

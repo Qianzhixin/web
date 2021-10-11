@@ -2,6 +2,7 @@ package team.ifp.cbirc.vo;
 
 import lombok.Data;
 import team.ifp.cbirc.exception.BadRequestException;
+import team.ifp.cbirc.exception.UnauthorizedException;
 
 @Data
 public class ResponseVO {
@@ -39,9 +40,18 @@ public class ResponseVO {
 
     /**
      * Bad Request 400
+     * @param message
      */
     public static void buildBadRequest(String message) {
         throw new BadRequestException(message);
+    }
+
+    /**
+     * Unauthorized
+     * @param message
+     */
+    public static void buildUnauthorized(String message) {
+        throw new UnauthorizedException(message);
     }
 
 }
