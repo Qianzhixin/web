@@ -2,7 +2,7 @@ package team.ifp.cbirc.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import team.ifp.cbirc.entity.User;
+import team.ifp.cbirc.po.User;
 
 import java.util.List;
 

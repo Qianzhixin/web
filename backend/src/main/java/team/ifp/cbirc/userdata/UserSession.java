@@ -1,8 +1,8 @@
-package team.ifp.cbirc.session;
+package team.ifp.cbirc.userdata;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import team.ifp.cbirc.entity.User;
+import team.ifp.cbirc.po.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

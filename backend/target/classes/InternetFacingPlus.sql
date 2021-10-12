@@ -34,8 +34,9 @@ CREATE TABLE user
 (
     id INT UNIQUE NOT NULL AUTO_INCREMENT COMMENT '主键',
     username VARCHAR(30) UNICODE NOT NULL COMMENT '用户名',
-    password VARCHAR(30) NOT NULL COMMENT '密码'
-);
+    password VARCHAR(30) NOT NULL COMMENT '密码',
+    PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 创建默认数据
 
@@ -44,4 +45,4 @@ VALUES (1,'测试法规1','','测试类别1','部门1',1,'2021-04-29 18:37:10','
        (2,'测试法规2','','测试类别2','部门2',1,'2021-04-29 18:37:10','2021-04-29 18:37:10','部门1','张三','2021-04-28 18:37:10','test2',1);
 
 INSERT INTO `user`
-VALUE (1,'root','111111');
+VALUES (1,'root','111111');

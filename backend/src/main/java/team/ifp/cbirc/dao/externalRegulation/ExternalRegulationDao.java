@@ -1,10 +1,8 @@
 package team.ifp.cbirc.dao.externalRegulation;
 
-import team.ifp.cbirc._enum.RegulationState;
-import team.ifp.cbirc.entity.ExternalRegulation;
-import team.ifp.cbirc.po.SearchRegulationPO;
+import team.ifp.cbirc.po.ExternalRegulation;
+import team.ifp.cbirc.pojo.SearchRegulationPOJO;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +20,6 @@ public interface ExternalRegulationDao {
      * @param po 搜索条件集合类
      * @return
      */
-    public List<ExternalRegulation> search(SearchRegulationPO po);
+    public List<ExternalRegulation> search(SearchRegulationPOJO po);
 
 }

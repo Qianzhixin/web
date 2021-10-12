@@ -1,4 +1,4 @@
-package team.ifp.cbirc.entity;
+package team.ifp.cbirc.po;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

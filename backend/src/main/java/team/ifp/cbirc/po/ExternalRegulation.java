@@ -1,7 +1,6 @@
-package team.ifp.cbirc.entity;
+package team.ifp.cbirc.po;
 
 import lombok.AllArgsConstructor;
-import lombok.Cleanup;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.ifp.cbirc._enum.RegulationState;

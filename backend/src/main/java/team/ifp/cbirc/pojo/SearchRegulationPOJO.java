@@ -1,4 +1,4 @@
-package team.ifp.cbirc.po;
+package team.ifp.cbirc.pojo;
 
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.vo.SearchRegulationVO;
@@ -8,12 +8,14 @@ import java.util.Date;
 /**
  * @author GuoXinyuan
  * @date 2021/10/10
- * 搜索法规数据PO
+ * 搜索法规数据条件对象,用于 Service 向 Dao 传递
  */
-public class SearchRegulationPO {
+public class SearchRegulationPOJO {
 
-    public SearchRegulationPO(SearchRegulationVO searchRegulationVO) {
+    public SearchRegulationPOJO(SearchRegulationVO searchRegulationVO) {
         this.content = searchRegulationVO;
+        if(this.content.getBegin() == null) this.content.setBegin(0);
+        if(this.content.getLen() == null) this.content.setLen(0);
     }
 
     private final SearchRegulationVO content;

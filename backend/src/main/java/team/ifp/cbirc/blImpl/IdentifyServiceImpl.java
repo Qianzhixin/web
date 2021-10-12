@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team.ifp.cbirc.bl.IdentifyService;
 import team.ifp.cbirc.dao.UserRepository;
-import team.ifp.cbirc.entity.User;
-import team.ifp.cbirc.session.UserSession;
+import team.ifp.cbirc.po.User;
+import team.ifp.cbirc.userdata.UserSession;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.UserVO;
 

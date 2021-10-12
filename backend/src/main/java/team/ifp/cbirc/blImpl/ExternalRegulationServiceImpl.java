@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team.ifp.cbirc.bl.ExternalRegulationService;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
-import team.ifp.cbirc.entity.ExternalRegulation;
-import team.ifp.cbirc.po.SearchRegulationPO;
+import team.ifp.cbirc.po.ExternalRegulation;
+import team.ifp.cbirc.pojo.SearchRegulationPOJO;
+import team.ifp.cbirc.vo.ExternalRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * @author GuoXinyuan
@@ -41,12 +44,17 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             ResponseVO.buildBadRequest("无意义查询(查询起点: " + vo.getBegin() + ",查询长度: " + vo.getLen() + ")");
         }
 
-        SearchRegulationPO searchRegulationPO = new SearchRegulationPO(vo);
-        List<ExternalRegulation> resultList = externalRegulationRepository.search(searchRegulationPO);
+        SearchRegulationPOJO searchRegulationPOJO = new SearchRegulationPOJO(vo);
 
-        if(resultList == null) {
+        //查询获取实体列表
+        List<ExternalRegulation> entityList = externalRegulationRepository.search(searchRegulationPOJO);
+
+        if(entityList == null) {
             ResponseVO.buildInternetServerError("服务器异常");
         }
+
+        //将实体映射为VO
+        List<ExternalRegulationVO> resultList = entityList.parallelStream().map(ExternalRegulationVO::new).collect(Collectors.toList());
 
         return ResponseVO.buildOK(resultList);
     }

@@ -3,7 +3,7 @@ package team.ifp.cbirc.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import team.ifp.cbirc._enum.RegulationState;
-import team.ifp.cbirc.entity.ExternalRegulation;
+import team.ifp.cbirc.po.ExternalRegulation;
 import team.ifp.cbirc.util.FileUtil;
 
 import java.util.Date;
@@ -16,10 +16,9 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-public class RegulationVO {
+public class ExternalRegulationVO {
 
-    public RegulationVO(ExternalRegulation externalRegulation) {
-        this.id = externalRegulation.getId();
+    public ExternalRegulationVO(ExternalRegulation externalRegulation) {
         this.title = externalRegulation.getTitle();
         this.number = externalRegulation.getNumber();
         this.type = externalRegulation.getType();
@@ -33,8 +32,6 @@ public class RegulationVO {
         this.text = FileUtil.readFile(externalRegulation.getTextPath()); //读取文件内容
         this.state = externalRegulation.getState();
     }
-
-    private int id;
 
     private String title;
 

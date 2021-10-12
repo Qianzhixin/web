@@ -1,5 +1,6 @@
 package team.ifp.cbirc.bl;
 
+import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
@@ -18,5 +19,6 @@ public interface ExternalRegulationService {
      * @return
      */
     ResponseVO search(SearchRegulationVO searchRegulationVO);
+
 
 }

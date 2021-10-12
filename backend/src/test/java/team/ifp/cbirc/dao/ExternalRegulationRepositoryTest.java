@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.context.WebApplicationContext;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
-import team.ifp.cbirc.entity.ExternalRegulation;
-import team.ifp.cbirc.po.SearchRegulationPO;
+import team.ifp.cbirc.po.ExternalRegulation;
+import team.ifp.cbirc.pojo.SearchRegulationPOJO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
 import java.util.List;
@@ -45,12 +45,13 @@ public class ExternalRegulationRepositoryTest {
         SearchRegulationVO searchRegulationVO = new SearchRegulationVO();
         searchRegulationVO.setTitle("测试法规1");
         searchRegulationVO.setEffectivenessLevel(1);
+        searchRegulationVO.setPublishingDepartment("部门1");
         searchRegulationVO.setBegin(0);
         searchRegulationVO.setLen(0);
 
-        SearchRegulationPO searchRegulationPO = new SearchRegulationPO(searchRegulationVO);
+        SearchRegulationPOJO searchRegulationPOJO = new SearchRegulationPOJO(searchRegulationVO);
 
-        List<ExternalRegulation> regulationList = externalRegulationRepository.search(searchRegulationPO);
+        List<ExternalRegulation> regulationList = externalRegulationRepository.search(searchRegulationPOJO);
 
         assertTestData1(regulationList.get(0));
     }

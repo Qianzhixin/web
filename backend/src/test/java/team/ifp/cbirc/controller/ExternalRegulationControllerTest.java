@@ -55,11 +55,10 @@ public class ExternalRegulationControllerTest {
     public void testSearch() throws Exception {
         JSONObject requestJsonObj = new JSONObject();
         requestJsonObj.put("title","测试法规1");
-        requestJsonObj.put("number",null);
-        requestJsonObj.put("publishingDepartment",null);
-        requestJsonObj.put("effectivenessLevel",null);
+        requestJsonObj.put("number","");
+        requestJsonObj.put("publishingDepartment","部门1");
+        requestJsonObj.put("effectivenessLevel",1);
         requestJsonObj.put("releaseDate","2021-04-29 18:37:10");
-        requestJsonObj.put("implementationDate",null);
         requestJsonObj.put("state","UNPUBLISHED");
 
         String requestBody = requestJsonObj.toJSONString();
@@ -76,7 +75,7 @@ public class ExternalRegulationControllerTest {
         JSONObject responseJsonObj = JSONObject.parseObject(response.getContentAsString());
         JSONObject contentObj = responseJsonObj.getJSONArray("content").getObject(0,JSONObject.class);
 
-        Assertions.assertEquals(1,contentObj.get("id"));
+        Assertions.assertEquals("测试法规1",contentObj.get("title"));
     }
 
     @Test
