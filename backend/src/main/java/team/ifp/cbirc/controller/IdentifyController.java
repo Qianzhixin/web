@@ -1,6 +1,7 @@
 package team.ifp.cbirc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team.ifp.cbirc.bl.IdentifyService;
 import team.ifp.cbirc.vo.ResponseVO;
@@ -19,17 +20,17 @@ public class IdentifyController {
     IdentifyService identifyService;
 
     @PostMapping("/login")
-    public ResponseVO login(@RequestBody UserVO userVO){
+    ResponseEntity<ResponseVO> login(@RequestBody UserVO userVO){
         return identifyService.login(userVO);
     }
 
     @PostMapping("/register")
-    public ResponseVO register(@RequestBody UserVO userVO){
+    ResponseEntity<ResponseVO> register(@RequestBody UserVO userVO){
         return identifyService.register(userVO);
     }
 
     @GetMapping("/logout")
-    public ResponseVO logout(){
+    ResponseEntity<ResponseVO> logout(){
         return identifyService.logout();
     }
 

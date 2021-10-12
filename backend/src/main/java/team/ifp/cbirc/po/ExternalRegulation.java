@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.ifp.cbirc._enum.RegulationState;
+import team.ifp.cbirc.vo.ExternalRegulationVO;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,6 +20,21 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExternalRegulation {
+
+    public ExternalRegulation(ExternalRegulationVO externalRegulationVO) {
+        title = externalRegulationVO.getTitle();
+        number = externalRegulationVO.getNumber();
+        type = externalRegulationVO.getType();
+        publishingDepartment = externalRegulationVO.getPublishingDepartment();
+        effectivenessLevel = externalRegulationVO.getEffectivenessLevel();
+        releaseDate = externalRegulationVO.getReleaseDate();
+        implementationDate = externalRegulationVO.getImplementationDate();
+        interpretationDepartment = externalRegulationVO.getInterpretationDepartment();
+        inputPerson = externalRegulationVO.getInputPerson();
+        inputDate = externalRegulationVO.getInputDate();
+        textPath = null;
+        state = externalRegulationVO.getState();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,7 @@
 package team.ifp.cbirc.bl;
 
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.ResponseEntity;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.UserVO;
 
@@ -13,17 +15,17 @@ public interface IdentifyService {
      * 用户登录
      * @param userVO
      */
-    ResponseVO login(UserVO userVO);
+    ResponseEntity<ResponseVO> login(UserVO userVO);
 
     /**
      * 用户登出
      */
-    ResponseVO logout();
+    ResponseEntity<ResponseVO> logout();
 
     /**
      * 用户注册
      * @param userVO
      */
-    ResponseVO register(UserVO userVO);
+    ResponseEntity<ResponseVO> register(UserVO userVO);
 
 }

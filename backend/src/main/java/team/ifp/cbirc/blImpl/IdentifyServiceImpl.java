@@ -1,6 +1,7 @@
 package team.ifp.cbirc.blImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import team.ifp.cbirc.bl.IdentifyService;
 import team.ifp.cbirc.dao.UserRepository;
@@ -28,7 +29,7 @@ public class IdentifyServiceImpl implements IdentifyService {
     private static final Semaphore buildUserLock = new Semaphore(1);
 
     @Override
-    public ResponseVO login(UserVO userVO) {
+    public ResponseEntity<ResponseVO> login(UserVO userVO) {
         if(userVO.getUsername() == null) {
             ResponseVO.buildBadRequest("用户名不可为空");
         }
@@ -57,18 +58,18 @@ public class IdentifyServiceImpl implements IdentifyService {
 
         UserSession.loginUser(user);
 
-        return ResponseVO.buildOK("登录成功");
+        return ResponseEntity.ok(ResponseVO.buildOK("登录成功"));
     }
 
     @Override
-    public ResponseVO logout() {
+    public ResponseEntity<ResponseVO> logout() {
         UserSession.logoutUser();
 
-        return ResponseVO.buildOK("注销成功");
+        return ResponseEntity.ok(ResponseVO.buildOK("注销成功"));
     }
 
     @Override
-    public ResponseVO register(UserVO userVO) {
+    public ResponseEntity<ResponseVO> register(UserVO userVO) {
         if(userVO.getUsername() == null) {
             ResponseVO.buildBadRequest("用户名不可为空");
         }
@@ -93,7 +94,7 @@ public class IdentifyServiceImpl implements IdentifyService {
             buildUserLock.release();
         }
 
-        return ResponseVO.buildOK("注册成功");
+        return ResponseEntity.ok(ResponseVO.buildOK("注册成功"));
     }
 
 }

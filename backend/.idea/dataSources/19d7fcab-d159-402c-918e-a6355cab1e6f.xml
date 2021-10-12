@@ -912,7 +912,9 @@ SELECT|sys.sys_config
     <table id="284" parent="3" name="external_regulation">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="285" parent="3" name="user"/>
+    <table id="285" parent="3" name="user">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
     <column id="286" parent="284" name="id">
       <Position>1</Position>
       <Comment>主键</Comment>
@@ -1029,7 +1031,12 @@ SELECT|sys.sys_config
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="306" parent="285" name="id">
+    <key id="306" parent="285" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="307" parent="285" name="id">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>id</UnderlyingIndexName>
     </key>

@@ -36,6 +36,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
         Object user = session.getAttribute(UserSession.USER_INFO);
         if(user == null){
             response.setStatus(401);
+            response.setHeader("Content-Type", "application/json;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("status",401);
@@ -56,4 +57,5 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) {
     }
+
 }
