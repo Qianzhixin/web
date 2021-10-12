@@ -1,8 +1,11 @@
 package team.ifp.cbirc.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationDao;
 import team.ifp.cbirc.interceptor.AuthenticationInterceptor;
 import team.ifp.cbirc.interceptor.CORSInterceptor;
 
@@ -14,10 +17,12 @@ import team.ifp.cbirc.interceptor.CORSInterceptor;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    @Value("${myconfig.cors-address}")
+    private String CORS_ADDRESS;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
-        registry.addInterceptor(new CORSInterceptor());
+        registry.addInterceptor(new CORSInterceptor(CORS_ADDRESS));
 
         registry.addInterceptor(new AuthenticationInterceptor())
                 .addPathPatterns("/**")

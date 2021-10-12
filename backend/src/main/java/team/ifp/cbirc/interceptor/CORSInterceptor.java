@@ -1,7 +1,6 @@
 package team.ifp.cbirc.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-import team.ifp.cbirc.config.MainConfig;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CORSInterceptor implements HandlerInterceptor {
 
+    private final String CORS_ADDRESS;
+
+    public CORSInterceptor(String CORSAddress) {
+        this.CORS_ADDRESS = CORSAddress;
+    }
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         //添加跨域CORS
-        response.setHeader("Access-Control-Allow-Origin", MainConfig.CORS_ADDRESS);
+        response.setHeader("Access-Control-Allow-Origin", CORS_ADDRESS);
         response.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type,token,responseType");
         response.setHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH");
         response.setHeader("Access-Control-Max-Age", "3600");
