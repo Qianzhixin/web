@@ -70,7 +70,10 @@ public class OperLogAspect {
                 String operModul = opLog.operModul();
                 String operType = opLog.operType();
 
-                logger.info(String.format("操作模块：%s，操作类型：%s", operModul, operType));
+                if(!"".equals(operModul) && !"".equals(operType)){
+                    logger.info(String.format("操作模块：%s，操作类型：%s", operModul, operType));
+                }
+
             }
             // 获取请求的类名
             String className = joinPoint.getTarget().getClass().getName();
