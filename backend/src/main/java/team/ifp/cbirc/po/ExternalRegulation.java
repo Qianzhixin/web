@@ -96,4 +96,107 @@ public class ExternalRegulation {
     @Enumerated(EnumType.ORDINAL)
     private RegulationState state;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPublishingDepartment() {
+        return publishingDepartment;
+    }
+
+    public void setPublishingDepartment(String publishingDepartment) {
+        this.publishingDepartment = publishingDepartment;
+    }
+
+    public int getEffectivenessLevel() {
+        return effectivenessLevel;
+    }
+
+    public void setEffectivenessLevel(int effectivenessLevel) {
+        this.effectivenessLevel = effectivenessLevel;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public Date getImplementationDate() {
+        return implementationDate;
+    }
+
+    public void setImplementationDate(Date implementationDate) {
+        this.implementationDate = implementationDate;
+    }
+
+    public String getInterpretationDepartment() {
+        return interpretationDepartment;
+    }
+
+    public void setInterpretationDepartment(String interpretationDepartment) {
+        this.interpretationDepartment = interpretationDepartment;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getInputDate() {
+        return inputDate;
+    }
+
+    public void setInputDate(Date inputDate) {
+        this.inputDate = inputDate;
+    }
+
+    public String getTextPath() {
+        return textPath;
+    }
+
+    public void setTextPath(String textPath) {
+        this.textPath = textPath;
+    }
+
+    public RegulationState getState() {
+        return state;
+    }
+
+    public void setState(RegulationState state) {
+        this.state = state;
+    }
 }
