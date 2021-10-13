@@ -76,6 +76,9 @@ public class IdentifyServiceImpl implements IdentifyService {
         if(userVO.getPassword() == null) {
             ResponseVO.buildBadRequest("密码不可为空");
         }
+        if(userVO.getName() == null) {
+            ResponseVO.buildBadRequest("姓名不可为空");
+        }
 
         buildUserLock.acquireUninterruptibly();
         try {
@@ -88,6 +91,7 @@ public class IdentifyServiceImpl implements IdentifyService {
             User user = new User();
             user.setUsername(userVO.getUsername());
             user.setPassword(userVO.getPassword());
+            user.setUsername(userVO.getName());
 
             userRepository.save(user);
         } finally {

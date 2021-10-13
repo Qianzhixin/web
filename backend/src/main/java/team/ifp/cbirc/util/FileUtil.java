@@ -102,4 +102,30 @@ public class FileUtil {
         return file;
     }
 
+    /**
+     * 获取文件前缀名
+     * @param name
+     * @return
+     */
+    public static String getFileNamePrefix(String name) {
+        String[] ss = name.split("\\.");
+        StringBuilder stringBuilder = new StringBuilder(ss[0]);
+        for (int i = 1; i < ss.length - 1; i++) {
+            stringBuilder.append(".");
+            stringBuilder.append(ss[i]);
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * 获取文件后缀名
+     * @param name
+     * @return
+     */
+    public static String getFileNameSuffix(String name) {
+        String[] ss = name.split("\\.");
+        if(ss.length == 1) return "";
+        return ss[ss.length-1];
+    }
+
 }

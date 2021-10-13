@@ -4,6 +4,20 @@ CREATE DATABASE internet_facing_plus DEFAULT CHARACTER SET utf8 COLLATE utf8_gen
 
 USE internet_facing_plus;
 
+-- user表
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE user
+(
+    id INT UNIQUE NOT NULL AUTO_INCREMENT COMMENT '主键',
+    username VARCHAR(30) UNICODE NOT NULL COMMENT '用户名',
+    password VARCHAR(30) NOT NULL COMMENT '密码',
+    name VARCHAR(30) NOT NULL COMMENT '录入人姓名',
+    CONSTRAINT user_pk
+        PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- external_regulation表
 
 DROP TABLE IF EXISTS `external_regulation`;
@@ -19,30 +33,20 @@ CREATE TABLE external_regulation
     release_date DATETIME NOT NULL COMMENT '发布日期',
     implementation_date DATETIME NOT NULL COMMENT '实施日期',
     interpretation_department VARCHAR(20) COMMENT '解读部门',
-    input_person VARCHAR(20) NOT NULL COMMENT '录入人',
+    input_person_id INT NOT NULL COMMENT '录入人id',
     input_date DATETIME NOT NULL COMMENT '录入时间',
     text_path VARCHAR(260) NOT NULL COMMENT '正文文件路径',
     state INT NOT NULL COMMENT '法规是否发布,0为未发布,1为发布',
-    PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- user表
-
-DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE user
-(
-    id INT UNIQUE NOT NULL AUTO_INCREMENT COMMENT '主键',
-    username VARCHAR(30) UNICODE NOT NULL COMMENT '用户名',
-    password VARCHAR(30) NOT NULL COMMENT '密码',
-    PRIMARY KEY (id)
+    CONSTRAINT external_regulation_pk
+        PRIMARY KEY (id),
+        FOREIGN KEY (input_person_id) REFERENCES user(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 创建默认数据
 
-INSERT INTO `external_regulation`
-VALUES (1,'测试法规1','','测试类别1','部门1',1,'2021-04-29 18:37:10','2021-04-29 18:37:10','部门2','张三','2021-04-28 18:37:10','F:\\warehouse\\SePractice\\testdir\\测试法规1.doc',0),
-       (2,'测试法规2','','测试类别2','部门2',1,'2021-04-29 18:37:10','2021-04-29 18:37:10','部门1','张三','2021-04-28 18:37:10','F:\\warehouse\\SePractice\\testdir\\测试法规1.doc',1);
-
 INSERT INTO `user`
-VALUES (1,'root','111111');
+VALUES (1,'root','111111','张三');
+
+INSERT INTO `external_regulation`
+VALUES (1,'测试法规1','','测试类别1','部门1',1,'2021-04-29 18:37:10','2021-04-29 18:37:10','部门2',1,'2021-04-28 18:37:10','F:\\warehouse\\SePractice\\testdir\\测试法规1.doc',0),
+       (2,'测试法规2','','测试类别2','部门2',1,'2021-04-29 18:37:10','2021-04-29 18:37:10','部门1',1,'2021-04-28 18:37:10','F:\\warehouse\\SePractice\\testdir\\测试法规2.doc',1);

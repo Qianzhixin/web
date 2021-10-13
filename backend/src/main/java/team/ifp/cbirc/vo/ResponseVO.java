@@ -1,8 +1,9 @@
 package team.ifp.cbirc.vo;
 
 import lombok.Data;
-import team.ifp.cbirc.exception.BadRequestException;
-import team.ifp.cbirc.exception.UnauthorizedException;
+import team.ifp.cbirc.exception.HttpBadRequestException;
+import team.ifp.cbirc.exception.HttpNotFoundException;
+import team.ifp.cbirc.exception.HttpUnauthorizedException;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -54,15 +55,23 @@ public class ResponseVO {
      * @param message
      */
     public static void buildBadRequest(String message) {
-        throw new BadRequestException(message);
+        throw new HttpBadRequestException(message);
     }
 
     /**
-     * Unauthorized
+     * Unauthorized 401
      * @param message
      */
     public static void buildUnauthorized(String message) {
-        throw new UnauthorizedException(message);
+        throw new HttpUnauthorizedException(message);
+    }
+
+    /**
+     * Not Found 404
+     * @param message
+     */
+    public static void buildNotFound(String message) {
+        throw new HttpNotFoundException(message);
     }
 
     /**

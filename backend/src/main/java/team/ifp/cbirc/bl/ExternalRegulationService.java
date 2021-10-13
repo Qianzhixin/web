@@ -3,6 +3,7 @@ package team.ifp.cbirc.bl;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
+import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
@@ -33,9 +34,9 @@ public interface ExternalRegulationService {
     /**
      * 根据所给定的信息创建外规记录
      * @param file
-     * @param externalRegulationVO
+     * @param createRegulationVO
      * @return
      */
-    ResponseEntity<ResponseVO> create(MultipartFile file, ExternalRegulationVO externalRegulationVO);
+    ResponseEntity<ResponseVO> create(MultipartFile file, CreateRegulationVO createRegulationVO);
 
 }

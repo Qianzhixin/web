@@ -46,6 +46,7 @@ public class UserSession {
         cloneUser.setId(user.getId());
         cloneUser.setUsername(user.getUsername());
         cloneUser.setPassword(user.getPassword());
+        cloneUser.setName(user.getName());
         return cloneUser;
     }
 

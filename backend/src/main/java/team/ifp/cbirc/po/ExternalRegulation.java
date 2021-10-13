@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.ifp.cbirc._enum.RegulationState;
+import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 
 import javax.persistence.*;
@@ -30,10 +31,26 @@ public class ExternalRegulation {
         releaseDate = externalRegulationVO.getReleaseDate();
         implementationDate = externalRegulationVO.getImplementationDate();
         interpretationDepartment = externalRegulationVO.getInterpretationDepartment();
-        inputPerson = externalRegulationVO.getInputPerson();
+        user = new User();
+        user.setId(externalRegulationVO.getInputPersonId());
         inputDate = externalRegulationVO.getInputDate();
         textPath = null;
         state = externalRegulationVO.getState();
+    }
+
+    public ExternalRegulation(CreateRegulationVO createRegulationVO,User user,String textPath) {
+        title = createRegulationVO.getTitle();
+        number = createRegulationVO.getNumber();
+        type = createRegulationVO.getType();
+        publishingDepartment = createRegulationVO.getPublishingDepartment();
+        effectivenessLevel = createRegulationVO.getEffectivenessLevel();
+        releaseDate = createRegulationVO.getReleaseDate();
+        implementationDate = createRegulationVO.getImplementationDate();
+        interpretationDepartment = createRegulationVO.getInterpretationDepartment();
+        this.user = user;
+        inputDate = new Date();
+        this.textPath = textPath;
+        state = RegulationState.UNPUBLISHED;
     }
 
     @Id
@@ -65,8 +82,9 @@ public class ExternalRegulation {
     @Column(name = "interpretation_department")
     private String interpretationDepartment;
 
-    @Column(name = "input_person")
-    private String inputPerson;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "input_person_id")
+    private User user;
 
     @Column(name = "input_date")
     private Date inputDate;

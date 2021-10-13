@@ -13,9 +13,9 @@ import java.net.URLEncoder;
  */
 
 @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class BadRequestException extends RuntimeException{
+public class HttpBadRequestException extends RuntimeException{
 
-    public BadRequestException(String message) {
+    public HttpBadRequestException(String message) {
         super(message);
     }
 

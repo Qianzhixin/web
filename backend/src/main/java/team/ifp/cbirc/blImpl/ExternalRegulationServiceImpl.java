@@ -9,10 +9,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.Unsafe;
+import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.bl.ExternalRegulationService;
+import team.ifp.cbirc.dao.UserRepository;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
 import team.ifp.cbirc.po.ExternalRegulation;
 import team.ifp.cbirc.pojo.SearchRegulationPOJO;
+import team.ifp.cbirc.userdata.UserSession;
+import team.ifp.cbirc.util.FileUtil;
+import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
@@ -20,7 +26,11 @@ import team.ifp.cbirc.vo.SearchRegulationVO;
 import java.io.*;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -35,6 +45,9 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
 
     @Autowired
     private ExternalRegulationRepository externalRegulationRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * 根据searchRegulationVO中的信息搜索满足条件的法规
@@ -91,7 +104,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
 
         if(!byId.isPresent()) {
-            ResponseVO.buildBadRequest("所指定的法规不存在");
+            ResponseVO.buildNotFound("需要下载的法规不存在");
         }
 
         ExternalRegulation er = byId.get();
@@ -136,29 +149,49 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     }
 
     /**
+     * 创建文件锁
+     */
+    private static final Semaphore createFileLock = new Semaphore(1);
+
+    /**
      * 根据所给定的信息创建外规记录
      *
      * @param file
-     * @param vo
+     * @param createRegulationVO
      * @return
      */
     @Override
-    public ResponseEntity<ResponseVO> create(MultipartFile file, ExternalRegulationVO vo) {
+    public ResponseEntity<ResponseVO> create(MultipartFile file, CreateRegulationVO createRegulationVO) {
+
+        createRegulationVO.setType(createRegulationVO.getEffectivenessLevel() + "");
+
+        //检查输入合法性并抛出异常
+        createRegulationVO.checkLegalityAndThrowException();
+
+        //为文件获取唯一存储路径
+        createFileLock.acquireUninterruptibly();
+        File savedFile;
+        do {
+            String savePath = DATA_ROOT_PATH + File.separator +
+                    FileUtil.getFileNamePrefix(Objects.requireNonNull(file.getOriginalFilename())) + //去除后缀文件名
+                    UUID.randomUUID().toString() + "." + //拼接uuid
+                    FileUtil.getFileNameSuffix(file.getOriginalFilename()); //
+            savedFile = new File(savePath);
+        } while (savedFile.exists());
+        createFileLock.release();
 
         //存储上传文件
-        String savePath = DATA_ROOT_PATH + File.separator + file.getName();
-        File savedFile = new File(savePath);
         try {
             file.transferTo(savedFile);
         } catch (IOException e) {
-            ResponseVO.buildInternetServerError("服务器错误");
+            savedFile = null;
         }
+        if(savedFile == null) ResponseVO.buildInternetServerError("服务器错误");
 
         //构建存储对象
-        ExternalRegulation externalRegulation = new ExternalRegulation(vo);
-        externalRegulation.setTextPath(savePath);
+        ExternalRegulation externalRegulation = new ExternalRegulation(createRegulationVO,UserSession.getUser(),savedFile.getAbsolutePath());
 
-        //捕获数据库异常
+        //存入数据并捕获数据库异常
         boolean ifDataAccessException = false;
         try {
             externalRegulationRepository.save(externalRegulation);
@@ -166,7 +199,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             dataAccessException.printStackTrace();
             //产生异常删除文件
             if(!savedFile.delete()) {
-                System.err.println("新建法规保存失败,法规对应文件已保存但删除失败(path:" + savePath + ")");
+                System.err.println("新建法规保存失败,法规对应文件已保存但删除失败(path:" + savedFile.getAbsolutePath() + ")");
             }
             ifDataAccessException = true;
         } catch (Exception e) {
@@ -177,4 +210,6 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
 
         return ResponseEntity.ok(ResponseVO.buildOK("创建成功"));
     }
+
+
 }

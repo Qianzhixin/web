@@ -4,12 +4,15 @@ import org.springframework.stereotype.Repository;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationDao;
 import team.ifp.cbirc.po.ExternalRegulation;
+import team.ifp.cbirc.po.User;
 import team.ifp.cbirc.pojo.SearchRegulationPOJO;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author GuoXinyuan
@@ -57,7 +60,7 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
      * @return 能够形成有意义查询则返回对应 hql;否则返回 null
      */
     private String makeSearchHql(SearchRegulationPOJO pojo) {
-        StringBuilder sqlBuilder = new StringBuilder("from ExternalRegulation ");
+        StringBuilder sqlBuilder = new StringBuilder("from ExternalRegulation er ");
 
         //拼接搜索条件sql
         if(!spliceSearchCondition(sqlBuilder,pojo)) return null;

@@ -28,7 +28,8 @@ public class ExternalRegulationVO {
         this.releaseDate = externalRegulation.getReleaseDate();
         this.implementationDate = externalRegulation.getImplementationDate();
         this.interpretationDepartment = externalRegulation.getInterpretationDepartment();
-        this.inputPerson = externalRegulation.getInputPerson();
+        this.inputPersonId = externalRegulation.getUser().getId();
+        this.inputPersonName = externalRegulation.getUser().getName();
         this.inputDate = externalRegulation.getInputDate();
         this.state = externalRegulation.getState();
     }
@@ -51,7 +52,9 @@ public class ExternalRegulationVO {
 
     private String interpretationDepartment;
 
-    private String inputPerson;
+    private int inputPersonId;
+
+    private String inputPersonName;
 
     private Date inputDate;
 

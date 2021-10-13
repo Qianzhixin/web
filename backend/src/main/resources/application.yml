@@ -8,9 +8,10 @@ spring:
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    show-sql: false
+    show-sql: true
     hibernate:
       ddl-auto: none
+    open-in-view: true
 
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -18,12 +19,6 @@ spring:
 
 server:
   port: 8080
-  servlet:
-    encoding:
-      force-request: true
-      force-response: true
-  tomcat:
-    uri-encoding: UTF-8
 
 myconfig:
   cors-address: http://localhost:8000

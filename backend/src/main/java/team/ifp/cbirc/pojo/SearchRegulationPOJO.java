@@ -1,5 +1,6 @@
 package team.ifp.cbirc.pojo;
 
+import lombok.Data;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
@@ -10,6 +11,7 @@ import java.util.Date;
  * @date 2021/10/10
  * 搜索法规数据条件对象,用于 Service 向 Dao 传递
  */
+@Data
 public class SearchRegulationPOJO {
 
     public SearchRegulationPOJO(SearchRegulationVO searchRegulationVO) {
@@ -19,6 +21,12 @@ public class SearchRegulationPOJO {
     }
 
     private final SearchRegulationVO content;
+
+    private void setContent(){}
+
+    private SearchRegulationVO getContent(){
+        return null;
+    }
 
     public String getTitle() {
         return content.getTitle();
@@ -50,6 +58,6 @@ public class SearchRegulationPOJO {
 
     public int getBegin() { return content.getBegin(); }
 
-    public int getLen() { return content.getLen(); };
+    public int getLen() { return content.getLen(); }
 
 }

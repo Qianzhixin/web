@@ -1,5 +1,6 @@
 package team.ifp.cbirc.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.bl.ExternalRegulationService;
+import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
@@ -38,6 +40,11 @@ public class ExternalRegulationController {
         return externalRegulationService.search(searchRegulationVO);
     }
 
+    /**
+     * 根据法规 id 获取法规文件
+     * @param id
+     * @return
+     */
     @GetMapping("/downloadFile")
     ResponseEntity<InputStreamResource> downloadFile(@PathParam("id") int id) {
         return externalRegulationService.downloadFile(id);
@@ -50,8 +57,9 @@ public class ExternalRegulationController {
      * @return
      */
     @PostMapping("/create")
-    ResponseEntity<ResponseVO> create(@PathParam("file")MultipartFile file,@PathParam("info")String jsonInfo) {
-        return externalRegulationService.create(file,JSONObject.parseObject(jsonInfo, ExternalRegulationVO.class));
+    ResponseEntity<ResponseVO> create(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
+        CreateRegulationVO createRegulationVO = JSON.parseObject(jsonInfo,CreateRegulationVO.class);
+        return externalRegulationService.create(file,createRegulationVO);
     }
 
 }

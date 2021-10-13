@@ -18,4 +18,6 @@ public class UserVO {
 
     String password;
 
+    String name;
+
 }
