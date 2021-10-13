@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.bl.ExternalRegulationService;
+import team.ifp.cbirc.util.aop.OperLog;
 import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
@@ -36,6 +37,7 @@ public class ExternalRegulationController {
      * @return
      */
     @PostMapping("/search")
+    @OperLog(operModul = "外规管理-查询", operType = "查询")
     ResponseEntity<ResponseVO> search(@RequestBody SearchRegulationVO searchRegulationVO) {
         return externalRegulationService.search(searchRegulationVO);
     }
@@ -46,6 +48,7 @@ public class ExternalRegulationController {
      * @return
      */
     @GetMapping("/downloadFile")
+    @OperLog(operModul = "外规管理-正文下载", operType = "下载")
     ResponseEntity<InputStreamResource> downloadFile(@PathParam("id") int id) {
         return externalRegulationService.downloadFile(id);
     }
@@ -57,6 +60,7 @@ public class ExternalRegulationController {
      * @return
      */
     @PostMapping("/create")
+    @OperLog(operModul = "外规管理-创建外规记录", operType = "创建")
     ResponseEntity<ResponseVO> create(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
         CreateRegulationVO createRegulationVO = JSON.parseObject(jsonInfo,CreateRegulationVO.class);
         return externalRegulationService.create(file,createRegulationVO);
