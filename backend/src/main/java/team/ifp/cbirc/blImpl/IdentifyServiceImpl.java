@@ -91,7 +91,7 @@ public class IdentifyServiceImpl implements IdentifyService {
             User user = new User();
             user.setUsername(userVO.getUsername());
             user.setPassword(userVO.getPassword());
-            user.setUsername(userVO.getName());
+            user.setName(userVO.getName());
 
             userRepository.save(user);
         } finally {
