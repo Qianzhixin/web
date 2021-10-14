@@ -11,7 +11,7 @@ import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.UserVO;
 
 import java.util.List;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author GuoXinyuan
@@ -26,7 +26,7 @@ public class IdentifyServiceImpl implements IdentifyService {
     /**
      * 创建用户锁
      */
-    private static final Semaphore buildUserLock = new Semaphore(1);
+    private static final ReentrantLock buildUserLock = new ReentrantLock();
 
     @Override
     public ResponseEntity<ResponseVO> login(UserVO userVO) {
@@ -80,7 +80,7 @@ public class IdentifyServiceImpl implements IdentifyService {
             ResponseVO.buildBadRequest("姓名不可为空");
         }
 
-        buildUserLock.acquireUninterruptibly();
+        buildUserLock.lock();
         try {
             List<User> list = userRepository.findByUsername(userVO.getUsername());
 
@@ -95,7 +95,7 @@ public class IdentifyServiceImpl implements IdentifyService {
 
             userRepository.save(user);
         } finally {
-            buildUserLock.release();
+            buildUserLock.unlock();
         }
 
         return ResponseEntity.ok(ResponseVO.buildOK("注册成功"));

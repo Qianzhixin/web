@@ -3,10 +3,7 @@ package team.ifp.cbirc.bl;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
-import team.ifp.cbirc.vo.CreateRegulationVO;
-import team.ifp.cbirc.vo.ExternalRegulationVO;
-import team.ifp.cbirc.vo.ResponseVO;
-import team.ifp.cbirc.vo.SearchRegulationVO;
+import team.ifp.cbirc.vo.*;
 
 /**
  * @author GuoXinyuan
@@ -38,5 +35,17 @@ public interface ExternalRegulationService {
      * @return
      */
     ResponseEntity<ResponseVO> create(MultipartFile file, CreateRegulationVO createRegulationVO);
+
+    /**
+     * 根据给定的文件与信息修改法规信息
+     * @param file 法规正文文件
+     *             为 null 则不对正文做出修改;
+     *             否则删除原文件,替换为这次上传的文件；
+     * @param editRegulationVO 法规信息修改对象
+     *                 editRegulationVO==null,不对正文信息做出任何修改;
+     *                 editRegulationVO 内部属性为 null,不对该属性做出修改
+     * @return
+     */
+    ResponseEntity<ResponseVO> edit(MultipartFile file, EditRegulationVO editRegulationVO);
 
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.vo.CreateRegulationVO;
+import team.ifp.cbirc.vo.EditRegulationVO;
 import team.ifp.cbirc.vo.ExternalRegulationVO;
 
 import javax.persistence.*;
@@ -51,6 +52,10 @@ public class ExternalRegulation {
         inputDate = new Date();
         this.textPath = textPath;
         state = RegulationState.UNPUBLISHED;
+    }
+
+    public ExternalRegulation(EditRegulationVO editRegulationVO,String textPath) {
+
     }
 
     @Id

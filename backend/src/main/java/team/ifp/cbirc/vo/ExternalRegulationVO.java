@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.po.ExternalRegulation;
-import team.ifp.cbirc.util.FileUtil;
 
 import java.util.Date;
 

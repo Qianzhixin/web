@@ -1,6 +1,7 @@
 package team.ifp.cbirc.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -8,10 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.bl.ExternalRegulationService;
-import team.ifp.cbirc.vo.CreateRegulationVO;
-import team.ifp.cbirc.vo.ExternalRegulationVO;
-import team.ifp.cbirc.vo.ResponseVO;
-import team.ifp.cbirc.vo.SearchRegulationVO;
+import team.ifp.cbirc.vo.*;
 
 import javax.websocket.server.PathParam;
 
@@ -58,8 +56,56 @@ public class ExternalRegulationController {
      */
     @PostMapping("/create")
     ResponseEntity<ResponseVO> create(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
-        CreateRegulationVO createRegulationVO = JSON.parseObject(jsonInfo,CreateRegulationVO.class);
+        //解析 json 对象
+        CreateRegulationVO createRegulationVO;
+        try {
+            createRegulationVO = JSON.parseObject(jsonInfo,CreateRegulationVO.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            createRegulationVO = null;
+        }
+        if(createRegulationVO == null) {
+            ResponseVO.buildBadRequest("无法解析所发送的 json 数据");
+        }
         return externalRegulationService.create(file,createRegulationVO);
+    }
+
+    /**
+     * 根据给定的文件与信息修改法规信息
+     * @param file 法规正文文件
+     *             为 null 则不对正文做出修改;
+     *             否则删除原文件,替换为这次上传的文件；
+     * @param jsonInfo 法规信息 json 对象
+     *                 jsonInfo==null,不对正文信息做出任何修改;
+     *                 jsonInfo 内部属性为 null,不对该属性做出修改
+     * @return
+     */
+    @PostMapping("/edit")
+    ResponseEntity<ResponseVO> edit(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
+        //解析 json 对象
+        EditRegulationVO editRegulationVO = null;
+        if(jsonInfo != null) {
+            try {
+                editRegulationVO = JSON.parseObject(jsonInfo,EditRegulationVO.class);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                editRegulationVO = null;
+            }
+            if(editRegulationVO == null) {
+                ResponseVO.buildBadRequest("无法解析所发送的 json 数据");
+            }
+        }
+        return externalRegulationService.edit(file,editRegulationVO);
+    }
+
+    /**
+     * 仅对法规信息做出修改
+     * @param editRegulationVO
+     * @return
+     */
+    @PostMapping("/editInfo")
+    ResponseEntity<ResponseVO> edit(@RequestBody EditRegulationVO editRegulationVO) {
+        return externalRegulationService.edit(null,editRegulationVO);
     }
 
 }
