@@ -188,3 +188,63 @@ Unconditional classes:
 2021-10-14 16:13:12.718 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
 2021-10-14 16:13:12.721 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
 2021-10-14 16:13:12.732 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2021-10-14 16:14:26.849 [Thread-30] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2021-10-14 16:14:26.854 [Thread-30] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-14 16:14:26.855 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated... 
+2021-10-14 16:14:26.861 [Thread-30] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed. 
+2021-10-14 16:14:27.087 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 7436 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-14 16:14:27.087 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-14 16:14:27.361 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-14 16:14:27.377 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-14 16:14:27.395 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces. 
+2021-10-14 16:14:27.441 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$3affe86] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-14 16:14:27.442 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-14 16:14:27.570 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-14 16:14:27.571 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-14 16:14:27.571 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-14 16:14:27.589 [restartedMain] INFO  o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-14 16:14:27.589 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 500 ms 
+2021-10-14 16:14:27.676 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-14 16:14:27.680 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting... 
+2021-10-14 16:14:27.680 [restartedMain] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-14 16:14:27.684 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed. 
+2021-10-14 16:14:27.685 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-14 16:14:27.732 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-14 16:14:27.732 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-14 16:14:28.276 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-14 16:14:28.649 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-14 16:14:28.670 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-14 16:14:28.676 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 1.622 seconds (JVM running for 1743.448) 
+2021-10-14 16:14:28.678 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2021-10-14 16:14:30.038 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - Starting ExternalRegulationControllerTest using Java 1.8.0_281 on GORGIYA-HP with PID 9196 (started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-14 16:14:30.039 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - The following profiles are active: dev 
+2021-10-14 16:14:30.923 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-14 16:14:31.015 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-14 16:14:31.105 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 2 JPA repository interfaces. 
+2021-10-14 16:14:31.451 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$c3431118] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-14 16:14:31.498 [main] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-14 16:14:32.203 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-14 16:14:32.262 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-14 16:14:32.403 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-14 16:14:32.813 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+2021-10-14 16:14:32.819 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-14 16:14:33.117 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+2021-10-14 16:14:33.145 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-14 16:14:33.966 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-14 16:14:33.976 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-14 16:14:35.480 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-14 16:14:36.173 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - Started ExternalRegulationControllerTest in 6.671 seconds (JVM running for 8.354) 
+2021-10-14 16:14:36.275 [main] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet '' 
+2021-10-14 16:14:36.276 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Initializing Servlet '' 
+2021-10-14 16:14:36.277 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms 
+2021-10-14 16:14:36.656 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/login 
+2021-10-14 16:14:36.686 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Thu Oct 14 16:14:36 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-14 16:14:36.773 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-查询，操作类型：查询 
+2021-10-14 16:14:36.773 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.search，请求参数：{}，请求IP：127.0.0.1，请求URI：/externalRegulation/search 
+2021-10-14 16:14:36.778 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Thu Oct 14 16:14:36 CST 2021，返回结果：{"body":{"code":0,"content":[{"effectivenessLevel":1,"id":1,"implementationDate":1619692630000,"inputDate":1619606230000,"inputPersonId":1,"inputPersonName":"张三","interpretationDepartment":"部门2","number":"","publishingDepartment":"部门1","releaseDate":1619692630000,"state":"UNPUBLISHED","title":"测试法规1","type":"测试类别1"}]},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-14 16:14:36.809 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.logout，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/logout 
+2021-10-14 16:14:36.810 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Thu Oct 14 16:14:36 CST 2021，返回结果：{"body":{"code":0,"content":"注销成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-14 16:14:36.830 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2021-10-14 16:14:36.831 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-14 16:14:36.835 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2021-10-14 16:14:36.849 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed. 
