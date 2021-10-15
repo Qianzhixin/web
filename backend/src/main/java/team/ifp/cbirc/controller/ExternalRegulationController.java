@@ -87,6 +87,7 @@ public class ExternalRegulationController {
      * @return
      */
     @PostMapping("/edit")
+    @OperLog(operModul = "外规管理-修改外规记录与正文", operType = "修改")
     ResponseEntity<ResponseVO> edit(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
         //解析 json 对象
         EditRegulationVO editRegulationVO = null;
@@ -110,8 +111,43 @@ public class ExternalRegulationController {
      * @return
      */
     @PostMapping("/editInfo")
+    @OperLog(operModul = "外规管理-修改外规记录", operType = "修改")
     ResponseEntity<ResponseVO> edit(@RequestBody EditRegulationVO editRegulationVO) {
         return externalRegulationService.edit(null,editRegulationVO);
     }
+
+    /**
+     * 根据id删除一条未发布法规
+     * @param id
+     * @return
+     */
+    @PostMapping("/delete")
+    @OperLog(operModul = "外规管理-删除外规记录", operType = "删除")
+    ResponseEntity<ResponseVO> delete(@RequestParam("id") int id) {
+        return externalRegulationService.delete(id);
+    }
+
+    /**
+     * 根据id发布一条法规
+     * @param id
+     * @return
+     */
+    @PostMapping("/issue")
+    @OperLog(operModul = "外规管理-发布外规", operType = "修改")
+    ResponseEntity<ResponseVO> issue(@RequestParam("id") int id) {
+        return externalRegulationService.issue(id);
+    }
+
+    /**
+     * 根据id废止一条法规
+     * @param id
+     * @return
+     */
+    @PostMapping("/abolish")
+    @OperLog(operModul = "外规管理-发布外规", operType = "修改")
+    ResponseEntity<ResponseVO> abolish(@RequestParam("id") int id) {
+        return externalRegulationService.abolish(id);
+    }
+
 
 }

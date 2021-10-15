@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.bl.ExternalRegulationService;
 import team.ifp.cbirc.dao.UserRepository;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
@@ -19,13 +20,14 @@ import team.ifp.cbirc.util.FileUtil;
 import team.ifp.cbirc.vo.*;
 
 import java.io.*;
-import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.function.BooleanSupplier;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 /**
@@ -176,19 +178,8 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         //构建存储对象
         ExternalRegulation externalRegulation = new ExternalRegulation(createRegulationVO,UserSession.getUser(),savedFile.getAbsolutePath());
 
-        //存入数据并捕获数据库异常
-        boolean ifDataAccessException = false;
-        try {
-            externalRegulationRepository.save(externalRegulation);
-        } catch (DataAccessException dataAccessException) {
-            dataAccessException.printStackTrace();
-            ifDataAccessException = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        //产生异常删除文件 并抛出异常
-        if(ifDataAccessException) {
+        //存入数据并捕获数据库异常 产生异常删除文件 并抛出异常
+        if(tryCacheDataAccessException(()->externalRegulationRepository.save(externalRegulation))) {
             if(!savedFile.delete()) {
                 System.err.println("新建法规保存失败,法规对应文件已保存但删除失败(path:" + savedFile.getAbsolutePath() + ")");
             }
@@ -227,7 +218,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             //获取原记录
             Optional<ExternalRegulation> byId = externalRegulationRepository.findById(editRegulationVO.getId());
             if(!byId.isPresent()) {
-                ResponseVO.buildNotFound("索要修改记录不存在");
+                ResponseVO.buildNotFound("所要修改记录不存在");
             }
             ExternalRegulation er = byId.get();
 
@@ -242,19 +233,10 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             //更新数据库信息
             if(!isAllNull) {
                 er = editRegulationVO.fillEditProperty(er);
-                //存入数据并捕获数据库异常
-                boolean ifDataAccessException = false;
-                try {
-                    externalRegulationRepository.save(er);
-                } catch (DataAccessException dataAccessException) {
-                    dataAccessException.printStackTrace();
-                    ifDataAccessException = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
-                //产生异常删除文件 并抛出异常
-                if(ifDataAccessException) {
+                //存入数据并捕获数据库异常 产生异常删除文件 并抛出异常
+                ExternalRegulation finalEr = er;
+                if(tryCacheDataAccessException(()->externalRegulationRepository.save(finalEr))) {
                     if(savedFile!=null && !savedFile.delete()) {
                         System.err.println("编辑法规失败,法规对应文件已保存但删除失败(path:" + savedFile.getAbsolutePath() + ")");
                     }
@@ -273,6 +255,116 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         }
 
         return ResponseEntity.ok(ResponseVO.buildOK("修改成功"));
+    }
+
+    /**
+     * 根据id删除一条未发布法规
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> delete(int id) {
+        //对每条记录生成一个字符串对象作为锁
+        String lock = REGULATION_LOCK_PREFIX + id;
+        synchronized (lock.intern()) {
+
+            //获取原记录
+            Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+            if(!byId.isPresent()) {
+                ResponseVO.buildNotFound("所要删除的记录不存在");
+            }
+            ExternalRegulation er = byId.get();
+
+            if(er.getState().equals(RegulationState.PUBLISHED)) {
+                ResponseVO.buildBadRequest("不能删除已发布的法规");
+            }
+
+            //删除记录
+            if(tryCacheDataAccessException(() -> {
+                externalRegulationRepository.deleteById(id);
+                return null;
+            })) ResponseVO.buildInternetServerError("服务器异常");
+            else {
+                File oldFile = new File(er.getTextPath());
+                if(oldFile.exists() && !oldFile.delete()) {
+                    System.err.println("删除法规成功,旧法规对应文件删除失败(path:" + er.getTextPath() + ")");
+                }
+            }
+        }
+        return ResponseEntity.ok(ResponseVO.buildOK("删除成功"));
+    }
+
+    /**
+     * 根据id发布一条法规
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> issue(int id) {
+        //获取原记录
+        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+        if(!byId.isPresent()) {
+            ResponseVO.buildNotFound("所要发布的法规不存在");
+        }
+        ExternalRegulation er = byId.get();
+
+        if(er.getState().equals(RegulationState.PUBLISHED)) {
+            ResponseVO.buildBadRequest("法规已经发布");
+        }
+
+        er.setState(RegulationState.PUBLISHED);
+
+        //存储结果
+        if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
+
+        return ResponseEntity.ok(ResponseVO.buildOK("发布成功"));
+    }
+
+    /**
+     * 根据id废止一条法规
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> abolish(int id) {
+        //获取原记录
+        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+        if(!byId.isPresent()) {
+            ResponseVO.buildNotFound("所要发布的法规不存在");
+        }
+        ExternalRegulation er = byId.get();
+
+        if(er.getState().equals(RegulationState.UNPUBLISHED)) {
+            ResponseVO.buildBadRequest("法规尚未发布");
+        }
+
+        er.setState(RegulationState.UNPUBLISHED);
+
+        //存储结果
+        if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
+
+        return ResponseEntity.ok(ResponseVO.buildOK("废止成功"));
+    }
+
+    /**
+     * 尝试执行数据库操作并捕获 databaseOperation
+     * @param databaseOperation
+     * @return
+     */
+    private boolean tryCacheDataAccessException(Supplier<ExternalRegulation> databaseOperation) {
+        boolean ifDataAccessException = false;
+        try {
+            databaseOperation.get();
+        } catch (DataAccessException dataAccessException) {
+            dataAccessException.printStackTrace();
+            ifDataAccessException = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ifDataAccessException;
     }
 
     /**

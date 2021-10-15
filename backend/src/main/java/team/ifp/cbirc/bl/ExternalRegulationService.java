@@ -2,6 +2,7 @@ package team.ifp.cbirc.bl;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.vo.*;
 
@@ -47,5 +48,26 @@ public interface ExternalRegulationService {
      * @return
      */
     ResponseEntity<ResponseVO> edit(MultipartFile file, EditRegulationVO editRegulationVO);
+
+    /**
+     * 根据id删除一条未发布法规
+     * @param id
+     * @return
+     */
+    ResponseEntity<ResponseVO> delete(int id);
+
+    /**
+     * 根据id发布一条法规
+     * @param id
+     * @return
+     */
+    ResponseEntity<ResponseVO> issue(int id);
+
+    /**
+     * 根据id废止一条法规
+     * @param id
+     * @return
+     */
+    ResponseEntity<ResponseVO> abolish(int id);
 
 }
