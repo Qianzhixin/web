@@ -25,7 +25,7 @@ import javax.websocket.server.PathParam;
  * @date 2021/10/9
  */
 
-@Tag(name = "外规管理接口", description = "外规的CRUD")
+@Tag(name = "外规管理接口", description = "外规的CRUD操作")
 @RestController
 @RequestMapping("/externalRegulation")
 public class ExternalRegulationController {
