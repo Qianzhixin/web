@@ -286,3 +286,119 @@ java.lang.RuntimeException: 服务器错误
 2021-10-15 19:34:03.602 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
 2021-10-15 19:34:03.633 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
 2021-10-15 19:34:03.633 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 3.993 seconds (JVM running for 5.202) 
+2021-10-15 19:50:36.255 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 9520 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-15 19:50:36.255 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-15 19:50:36.302 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-10-15 19:50:36.302 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-10-15 19:50:37.052 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-15 19:50:37.083 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-15 19:50:37.146 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces. 
+2021-10-15 19:50:37.364 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$83f22ddf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-15 19:50:37.396 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-15 19:50:37.833 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-15 19:50:37.833 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-10-15 19:50:37.833 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-15 19:50:37.833 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-15 19:50:37.927 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-15 19:50:37.927 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1625 ms 
+2021-10-15 19:50:38.130 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-15 19:50:38.161 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-15 19:50:38.239 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-15 19:50:38.302 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+2021-10-15 19:50:38.302 [restartedMain] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-15 19:50:38.427 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+2021-10-15 19:50:38.442 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-15 19:50:38.880 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-15 19:50:38.895 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-15 19:50:39.614 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-15 19:50:39.958 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-15 19:50:39.973 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-10-15 19:50:39.989 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-15 19:50:40.004 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 4.197 seconds (JVM running for 5.373) 
+2021-10-15 19:50:43.277 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-10-15 19:50:43.277 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-10-15 19:50:43.278 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms 
+2021-10-15 19:50:43.863 [http-nio-8080-exec-2] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：0:0:0:0:0:0:0:1，请求URI：/identify/login 
+2021-10-15 19:50:43.886 [http-nio-8080-exec-2] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Fri Oct 15 19:50:43 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-15 19:50:57.527 [http-nio-8080-exec-3] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-发布外规，操作类型：修改 
+2021-10-15 19:50:57.527 [http-nio-8080-exec-3] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.issue，请求参数：{"id":"1"}，请求IP：0:0:0:0:0:0:0:1，请求URI：/externalRegulation/issue 
+2021-10-15 19:50:57.528 [http-nio-8080-exec-3] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Fri Oct 15 19:50:57 CST 2021，返回结果：{"body":{"code":0,"content":"发布成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-15 19:51:00.857 [http-nio-8080-exec-4] ERROR team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.issue，请求参数：{"id":"1"}，请求IP：0:0:0:0:0:0:0:1，请求URI：/externalRegulation/issue， 
+2021-10-15 19:51:00.857 [http-nio-8080-exec-4] ERROR team.ifp.cbirc.util.aop.OperLogAspect - 异常名称：team.ifp.cbirc.exception.HttpBadRequestException，异常发生时间：Fri Oct 15 19:51:00 CST 2021 
+2021-10-15 19:51:00.858 [http-nio-8080-exec-4] ERROR team.ifp.cbirc.util.aop.OperLogAspect - 异常信息：
+team.ifp.cbirc.exception.HttpBadRequestException:法规已经发布
+	team.ifp.cbirc.vo.ResponseVO.buildBadRequest(ResponseVO.java:74)
+team.ifp.cbirc.blImpl.ExternalRegulationServiceImpl.issue(ExternalRegulationServiceImpl.java:314)
+team.ifp.cbirc.controller.ExternalRegulationController.issue(ExternalRegulationController.java:138)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:782)
+org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:175)
+org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+team.ifp.cbirc.controller.ExternalRegulationController$$EnhancerBySpringCGLIB$$9a7d3e0b.issue(<generated>)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:498)
+org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
+org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:887)
+org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1684)
+org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+java.lang.Thread.run(Thread.java:748)
+ 
+2021-10-15 19:51:00.861 [http-nio-8080-exec-4] WARN  o.s.w.s.m.a.ResponseStatusExceptionResolver - Resolved [team.ifp.cbirc.exception.HttpBadRequestException: 法规已经发布] 

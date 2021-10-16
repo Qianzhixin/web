@@ -43,9 +43,6 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     @Autowired
     private ExternalRegulationRepository externalRegulationRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     /**
      * 存储文件锁
      */
@@ -113,7 +110,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
 
         if(!byId.isPresent()) {
-            ResponseVO.buildNotFound("需要下载的法规不存在");
+            ResponseVO.buildNotFound("需要下载正文的法规不存在");
         }
 
         ExternalRegulation er = byId.get();
@@ -217,9 +214,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
 
             //获取原记录
             Optional<ExternalRegulation> byId = externalRegulationRepository.findById(editRegulationVO.getId());
-            if(!byId.isPresent()) {
-                ResponseVO.buildNotFound("所要修改记录不存在");
-            }
+            if(!byId.isPresent()) ResponseVO.buildNotFound("所要修改记录不存在");
             ExternalRegulation er = byId.get();
 
             //保存新上传的文件
@@ -303,21 +298,24 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
      */
     @Override
     public ResponseEntity<ResponseVO> issue(int id) {
-        //获取原记录
-        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
-        if(!byId.isPresent()) {
-            ResponseVO.buildNotFound("所要发布的法规不存在");
+        String lock = REGULATION_LOCK_PREFIX + id;
+        synchronized (lock.intern()) {
+            //获取原记录
+            Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+            if(!byId.isPresent()) {
+                ResponseVO.buildNotFound("所要发布的法规不存在");
+            }
+            ExternalRegulation er = byId.get();
+
+            if(er.getState().equals(RegulationState.PUBLISHED)) {
+                ResponseVO.buildBadRequest("法规已经发布");
+            }
+
+            er.setState(RegulationState.PUBLISHED);
+
+            //存储结果
+            if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
         }
-        ExternalRegulation er = byId.get();
-
-        if(er.getState().equals(RegulationState.PUBLISHED)) {
-            ResponseVO.buildBadRequest("法规已经发布");
-        }
-
-        er.setState(RegulationState.PUBLISHED);
-
-        //存储结果
-        if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
 
         return ResponseEntity.ok(ResponseVO.buildOK("发布成功"));
     }
@@ -330,21 +328,24 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
      */
     @Override
     public ResponseEntity<ResponseVO> abolish(int id) {
-        //获取原记录
-        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
-        if(!byId.isPresent()) {
-            ResponseVO.buildNotFound("所要发布的法规不存在");
+        String lock = REGULATION_LOCK_PREFIX + id;
+        synchronized (lock.intern()) {
+            //获取原记录
+            Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+            if(!byId.isPresent()) {
+                ResponseVO.buildNotFound("所要发布的法规不存在");
+            }
+            ExternalRegulation er = byId.get();
+
+            if(er.getState().equals(RegulationState.UNPUBLISHED)) {
+                ResponseVO.buildBadRequest("法规尚未发布");
+            }
+
+            er.setState(RegulationState.UNPUBLISHED);
+
+            //存储结果
+            if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
         }
-        ExternalRegulation er = byId.get();
-
-        if(er.getState().equals(RegulationState.UNPUBLISHED)) {
-            ResponseVO.buildBadRequest("法规尚未发布");
-        }
-
-        er.setState(RegulationState.UNPUBLISHED);
-
-        //存储结果
-        if(tryCacheDataAccessException(() -> externalRegulationRepository.save(er))) ResponseVO.buildInternetServerError("服务器错误");
 
         return ResponseEntity.ok(ResponseVO.buildOK("废止成功"));
     }
