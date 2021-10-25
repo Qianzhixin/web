@@ -1,8 +1,11 @@
-DROP DATABASE IF EXISTS `internet_facing_plus`;
-
-CREATE DATABASE internet_facing_plus DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+# DROP DATABASE IF EXISTS `internet_facing_plus`;
+#
+# CREATE DATABASE internet_facing_plus DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE internet_facing_plus;
+
+
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- user表
 
@@ -11,12 +14,13 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE user
 (
     id INT UNIQUE NOT NULL AUTO_INCREMENT COMMENT '主键',
-    username VARCHAR(30) UNICODE NOT NULL COMMENT '用户名',
+    username VARCHAR(30) NOT NULL COMMENT '用户名',
     password VARCHAR(30) NOT NULL COMMENT '密码',
     name VARCHAR(30) NOT NULL COMMENT '录入人姓名',
     CONSTRAINT user_pk
         PRIMARY KEY (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 -- external_regulation表
 
@@ -41,6 +45,9 @@ CREATE TABLE external_regulation
         PRIMARY KEY (id),
         FOREIGN KEY (input_person_id) REFERENCES user(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
 
 -- 创建默认数据
 

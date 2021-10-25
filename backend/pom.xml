@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.9</version>
+            <version>1.2.8</version>
         </dependency>
 
         <!-- lombok -->
@@ -88,6 +88,13 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.5.3</version>
+        </dependency>
+
+        <!--Liquibase-->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>4.3.5</version>
         </dependency>
 
         <!-- mybatis -->
