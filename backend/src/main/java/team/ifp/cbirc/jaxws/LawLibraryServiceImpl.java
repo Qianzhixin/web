@@ -6,6 +6,7 @@ import team.ifp.cbirc.bl.ExternalRegulationService;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
 import team.ifp.cbirc.po.ExternalRegulation;
 import team.ifp.cbirc.pojo.SearchRegulationPOJO;
+import team.ifp.cbirc.util.aop.OperLog;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class LawLibraryServiceImpl implements LawLibraryService{
     @Autowired
     ServerConfig serverConfig;
 
+    @OperLog(operModul = "WebService-数据访问", operType = "查询")
     @Override
     public DataAccessResponse getExternalRegulationList(SearchRegulationVO searchRegulationVO) {
         return search(searchRegulationVO);
