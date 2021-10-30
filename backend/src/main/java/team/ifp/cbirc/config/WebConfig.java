@@ -34,7 +34,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/favicon.ico")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v3/**",
                         "/swagger-ui.html/**","/swagger-ui/**","/mgr","/mgr/**","/h5","/h5/**")  // spring doc
-                .excludePathPatterns("/services/**"); // web services
+                .excludePathPatterns("/services/**") // web services
+                .excludePathPatterns("/static/**")  // 静态资源 外规正文
+        ;
     }
 
 

@@ -25,8 +25,6 @@ spring:
         login-username: admin
         login-password: 123456
 
-
-
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5Dialect
@@ -38,6 +36,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+  web:
+    resources:
+      static-locations: file:///d:/warehouse/SePractice/testdir # 外规正文存放路径
+  mvc:
+    static-path-pattern: /static/**  # http请求路由
 
 server:
   port: 8080

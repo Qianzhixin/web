@@ -49,7 +49,7 @@ for json_path in json_paths:
           (dic['title'], dic['number'], dic['type'], dic['publishing_department'], dic['effectiveness_level'],
            dic['release_date'], dic['implementation_date'], dic['interpretation_department'], 1,
            datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-           doc_tatget_path.replace("\\", "\\\\"),  # 解决入库丢失反斜杠的问题
+           doc_name,
            dic['state'])
     try:
         cursor.execute(sql)
