@@ -69,10 +69,14 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     @Override
     public ResponseEntity<ResponseVO> search(SearchRegulationVO vo) {
         if(vo.isAllNull()) {
-            ResponseVO.buildBadRequest("所有查询条件都为空");
+//            ResponseVO.buildBadRequest("所有查询条件都为空");
+
+            // 无过滤条件，查询全部
+            List<ExternalRegulation> entityList = externalRegulationRepository.findAll();
+            List<ExternalRegulationVO> resultList = entityList.parallelStream().map(ExternalRegulationVO::new).collect(Collectors.toList());
+            return ResponseEntity.ok(ResponseVO.buildOK(resultList));
         }
         if(vo.getBegin()==null && vo.getLen()==null) {
-            //设置为查询所有
             vo.setBegin(0);
             vo.setLen(0);
         }

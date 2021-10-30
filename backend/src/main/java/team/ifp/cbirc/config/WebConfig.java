@@ -30,10 +30,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/identify/register")
                 .excludePathPatterns("/error")
                 .excludePathPatterns("/test/**")
-                .excludePathPatterns("/druid")
+                .excludePathPatterns("/druid")  // druid监控
                 .excludePathPatterns("/favicon.ico")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v3/**",
-                        "/swagger-ui.html/**","/swagger-ui/**","/mgr","/mgr/**","/h5","/h5/**");;
+                        "/swagger-ui.html/**","/swagger-ui/**","/mgr","/mgr/**","/h5","/h5/**")  // spring doc
+                .excludePathPatterns("/services/**"); // web services
     }
 
 

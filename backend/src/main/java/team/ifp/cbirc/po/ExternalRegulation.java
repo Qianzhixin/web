@@ -76,13 +76,13 @@ public class ExternalRegulation {
     private String publishingDepartment;
 
     @Column(name = "effectiveness_level")
-    private int effectivenessLevel;
+    private String effectivenessLevel;
 
     @Column(name = "release_date")
-    private Date releaseDate;
+    private String releaseDate;
 
     @Column(name = "implementation_date")
-    private Date implementationDate;
+    private String implementationDate;
 
     @Column(name = "interpretation_department")
     private String interpretationDepartment;
@@ -141,28 +141,12 @@ public class ExternalRegulation {
         this.publishingDepartment = publishingDepartment;
     }
 
-    public int getEffectivenessLevel() {
+    public String getEffectivenessLevel() {
         return effectivenessLevel;
     }
 
-    public void setEffectivenessLevel(int effectivenessLevel) {
+    public void setEffectivenessLevel(String effectivenessLevel) {
         this.effectivenessLevel = effectivenessLevel;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getImplementationDate() {
-        return implementationDate;
-    }
-
-    public void setImplementationDate(Date implementationDate) {
-        this.implementationDate = implementationDate;
     }
 
     public String getInterpretationDepartment() {
@@ -203,5 +187,21 @@ public class ExternalRegulation {
 
     public void setState(RegulationState state) {
         this.state = state;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getImplementationDate() {
+        return implementationDate;
+    }
+
+    public void setImplementationDate(String implementationDate) {
+        this.implementationDate = implementationDate;
     }
 }

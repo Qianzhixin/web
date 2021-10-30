@@ -40,7 +40,7 @@ public class SearchRegulationPOJO {
         return content.getPublishingDepartment();
     }
 
-    public Integer getEffectivenessLevel() {
+    public String getEffectivenessLevel() {
         return content.getEffectivenessLevel();
     }
 

@@ -23,7 +23,7 @@ public class SearchRegulationVO {
 
     private String publishingDepartment;
 
-    private Integer effectivenessLevel;
+    private String effectivenessLevel;
 
     private Date releaseDate;
 
@@ -59,11 +59,11 @@ public class SearchRegulationVO {
         this.publishingDepartment = publishingDepartment;
     }
 
-    public Integer getEffectivenessLevel() {
+    public String getEffectivenessLevel() {
         return effectivenessLevel;
     }
 
-    public void setEffectivenessLevel(Integer effectivenessLevel) {
+    public void setEffectivenessLevel(String effectivenessLevel) {
         this.effectivenessLevel = effectivenessLevel;
     }
 

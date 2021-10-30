@@ -24,11 +24,11 @@ public class CreateRegulationVO {
 
     private String publishingDepartment;
 
-    private Integer effectivenessLevel;
+    private String effectivenessLevel;
 
-    private Date releaseDate;
+    private String releaseDate;
 
-    private Date implementationDate;
+    private String implementationDate;
 
     private String interpretationDepartment;
 
@@ -64,28 +64,12 @@ public class CreateRegulationVO {
         this.publishingDepartment = publishingDepartment;
     }
 
-    public Integer getEffectivenessLevel() {
+    public String getEffectivenessLevel() {
         return effectivenessLevel;
     }
 
-    public void setEffectivenessLevel(Integer effectivenessLevel) {
+    public void setEffectivenessLevel(String effectivenessLevel) {
         this.effectivenessLevel = effectivenessLevel;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getImplementationDate() {
-        return implementationDate;
-    }
-
-    public void setImplementationDate(Date implementationDate) {
-        this.implementationDate = implementationDate;
     }
 
     public String getInterpretationDepartment() {
@@ -94,6 +78,22 @@ public class CreateRegulationVO {
 
     public void setInterpretationDepartment(String interpretationDepartment) {
         this.interpretationDepartment = interpretationDepartment;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getImplementationDate() {
+        return implementationDate;
+    }
+
+    public void setImplementationDate(String implementationDate) {
+        this.implementationDate = implementationDate;
     }
 
     /**

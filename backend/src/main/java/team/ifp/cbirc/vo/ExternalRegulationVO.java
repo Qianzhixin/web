@@ -2,6 +2,7 @@ package team.ifp.cbirc.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.po.ExternalRegulation;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class ExternalRegulationVO {
 
@@ -43,11 +45,11 @@ public class ExternalRegulationVO {
 
     private String publishingDepartment;
 
-    private int effectivenessLevel;
+    private String effectivenessLevel;
 
-    private Date releaseDate;
+    private String releaseDate;
 
-    private Date implementationDate;
+    private String implementationDate;
 
     private String interpretationDepartment;
 
@@ -99,28 +101,12 @@ public class ExternalRegulationVO {
         this.publishingDepartment = publishingDepartment;
     }
 
-    public int getEffectivenessLevel() {
+    public String getEffectivenessLevel() {
         return effectivenessLevel;
     }
 
-    public void setEffectivenessLevel(int effectivenessLevel) {
+    public void setEffectivenessLevel(String effectivenessLevel) {
         this.effectivenessLevel = effectivenessLevel;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getImplementationDate() {
-        return implementationDate;
-    }
-
-    public void setImplementationDate(Date implementationDate) {
-        this.implementationDate = implementationDate;
     }
 
     public String getInterpretationDepartment() {
@@ -161,5 +147,21 @@ public class ExternalRegulationVO {
 
     public void setState(RegulationState state) {
         this.state = state;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getImplementationDate() {
+        return implementationDate;
+    }
+
+    public void setImplementationDate(String implementationDate) {
+        this.implementationDate = implementationDate;
     }
 }
