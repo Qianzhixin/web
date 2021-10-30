@@ -39,7 +39,7 @@ public class LawLibraryServiceImpl implements LawLibraryService{
                 // 拼接静态资源url
                 ter.setTextPath(serverConfig.getUrl() + "/static/" + ter.getTextPath());
             }
-            return DataAccessResponse.buildOK(resultList.subList(0, 10));
+            return DataAccessResponse.buildOK(resultList);
         }
         if(vo.getBegin()==null && vo.getLen()==null) {
             vo.setBegin(0);
