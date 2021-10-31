@@ -29,6 +29,18 @@ public class ExternalRegulationController {
     private ExternalRegulationService externalRegulationService;
 
     /**
+     * 获取任意数量的法规
+     * @param begin
+     * @param len
+     * @return
+     */
+    @GetMapping("/gain")
+    @OperLog(operModul = "外规管理-获取", operType = "查询")
+    ResponseEntity<ResponseVO> gain(@PathParam("begin")Integer begin,@PathParam("len")Integer len) {
+        return externalRegulationService.gain(begin, len);
+    }
+
+    /**
      * 根据 searchRegulationVO 中的信息搜索满足条件的法规
      * 当条件为 null 则不参与搜索;
      * 如果全为 null 则返回空集;
@@ -106,17 +118,6 @@ public class ExternalRegulationController {
     }
 
     /**
-     * 仅对法规信息做出修改
-     * @param editRegulationVO
-     * @return
-     */
-    @PostMapping("/editInfo")
-    @OperLog(operModul = "外规管理-修改外规记录", operType = "修改")
-    ResponseEntity<ResponseVO> edit(@RequestBody EditRegulationVO editRegulationVO) {
-        return externalRegulationService.edit(null,editRegulationVO);
-    }
-
-    /**
      * 根据id删除一条未发布法规
      * @param id
      * @return
@@ -149,5 +150,13 @@ public class ExternalRegulationController {
         return externalRegulationService.abolish(id);
     }
 
+    /**
+     * 进行统计
+     * @return
+     */
+    @GetMapping("statistics")
+    ResponseEntity<ResponseVO> doStatistics() {
+        return externalRegulationService.doStatistics();
+    }
 
 }

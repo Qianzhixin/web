@@ -13,6 +13,14 @@ import team.ifp.cbirc.vo.*;
 public interface ExternalRegulationService {
 
     /**
+     * 获取任意数量的法规
+     * @param begin
+     * @param end
+     * @return
+     */
+    ResponseEntity<ResponseVO> gain(Integer begin,Integer end);
+
+    /**
      * 根据searchRegulationVO中的信息搜索满足条件的法规
      * 当条件为null则不参与搜索;
      * 如果全为null则返回空集;
@@ -69,5 +77,11 @@ public interface ExternalRegulationService {
      * @return
      */
     ResponseEntity<ResponseVO> abolish(int id);
+
+    /**
+     * 进行统计
+     * @return
+     */
+    ResponseEntity<ResponseVO> doStatistics();
 
 }

@@ -8,6 +8,7 @@ import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.po.ExternalRegulation;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author GuoXinyuan
@@ -16,6 +17,9 @@ import java.util.Date;
 
 @Repository
 public interface ExternalRegulationRepository extends JpaRepository<ExternalRegulation,Integer>,ExternalRegulationDao {
+
+    @Query(nativeQuery = true,value = "select * from internet_facing_plus.external_regulation limit ?1,?2")
+    List<ExternalRegulation> find(int begin, int len);
 
     @Modifying
     @Query(nativeQuery = true,value =

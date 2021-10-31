@@ -1,0 +1,74 @@
+2021-10-31 16:45:30.017 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 16104 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-31 16:45:30.019 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-31 16:45:30.068 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-10-31 16:45:30.068 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-10-31 16:45:30.961 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-31 16:45:31.026 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-31 16:45:31.108 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 2 JPA repository interfaces. 
+2021-10-31 16:45:31.387 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$a6c38b50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-31 16:45:31.423 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-31 16:45:32.015 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-31 16:45:32.025 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-10-31 16:45:32.026 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-31 16:45:32.026 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-31 16:45:32.135 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-31 16:45:32.135 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2065 ms 
+2021-10-31 16:45:32.425 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-31 16:45:32.474 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-31 16:45:32.613 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-31 16:45:32.706 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+2021-10-31 16:45:32.708 [restartedMain] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-31 16:45:32.971 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+2021-10-31 16:45:32.984 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-31 16:45:34.675 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-31 16:45:34.694 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 16:45:35.494 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-31 16:45:35.821 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-31 16:45:35.840 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-10-31 16:45:35.857 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-31 16:45:35.865 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 6.796 seconds (JVM running for 8.614) 
+2021-10-31 16:46:37.758 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-10-31 16:46:37.758 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-10-31 16:46:37.761 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms 
+2021-10-31 16:46:38.642 [http-nio-8080-exec-1] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：0:0:0:0:0:0:0:1，请求URI：/identify/login 
+2021-10-31 16:46:38.712 [http-nio-8080-exec-1] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 16:46:38 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 16:47:51.680 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 16292 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-31 16:47:51.682 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-31 16:47:51.725 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-10-31 16:47:51.726 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-10-31 16:47:52.408 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-31 16:47:52.447 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-31 16:47:52.496 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces. 
+2021-10-31 16:47:52.706 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b5b674f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-31 16:47:52.736 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-31 16:47:53.222 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-31 16:47:53.229 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-10-31 16:47:53.230 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-31 16:47:53.231 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-31 16:47:53.328 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-31 16:47:53.328 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1601 ms 
+2021-10-31 16:47:53.578 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-31 16:47:53.629 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-31 16:47:53.819 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-31 16:47:53.949 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+2021-10-31 16:47:53.950 [restartedMain] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-31 16:47:54.124 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+2021-10-31 16:47:54.136 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-31 16:47:54.684 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-31 16:47:54.693 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 16:47:55.397 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-31 16:47:55.734 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-31 16:47:55.751 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-10-31 16:47:55.767 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-31 16:47:55.775 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 4.617 seconds (JVM running for 5.891) 
+2021-10-31 16:49:07.043 [http-nio-8080-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-10-31 16:49:07.044 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-10-31 16:49:07.045 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms 
+2021-10-31 16:49:10.831 [http-nio-8080-exec-4] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：0:0:0:0:0:0:0:1，请求URI：/identify/login 
+2021-10-31 16:49:10.857 [http-nio-8080-exec-4] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 16:49:10 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 16:50:18.438 [http-nio-8080-exec-6] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-获取，操作类型：查询 
+2021-10-31 16:50:18.439 [http-nio-8080-exec-6] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.gain，请求参数：{}，请求IP：0:0:0:0:0:0:0:1，请求URI：/externalRegulation/gain 
+2021-10-31 16:50:18.446 [http-nio-8080-exec-6] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 16:50:18 CST 2021，返回结果：{"body":{"code":0,"content":[{"effectivenessLevel":1,"id":1,"implementationDate":1619692630000,"inputDate":1619606230000,"interpretationDepartment":"部门2","number":"","publishingDepartment":"部门1","releaseDate":1619692630000,"state":"PUBLISHED","textPath":"F:\\warehouse\\SePractice\\testdir\\测试法规1.doc","title":"测试法规1","type":"测试类别1","user":{"id":1,"name":"张三","password":"111111","username":"root"}},{"effectivenessLevel":1,"id":2,"implementationDate":1619692630000,"inputDate":1619606230000,"interpretationDepartment":"部门1","number":"","publishingDepartment":"部门2","releaseDate":1619692630000,"state":"PUBLISHED","textPath":"F:\\warehouse\\SePractice\\testdir\\测试法规2.doc","title":"测试法规2","type":"测试类别2","user":{"$ref":"$.body.content[0].user"}}]},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 16:50:37.318 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-获取，操作类型：查询 
+2021-10-31 16:50:37.318 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.gain，请求参数：{"len":"1","begin":"1"}，请求IP：0:0:0:0:0:0:0:1，请求URI：/externalRegulation/gain 
+2021-10-31 16:50:37.319 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 16:50:37 CST 2021，返回结果：{"body":{"code":0,"content":[{"effectivenessLevel":1,"id":2,"implementationDate":1619692630000,"inputDate":1619606230000,"interpretationDepartment":"部门1","number":"","publishingDepartment":"部门2","releaseDate":1619692630000,"state":"PUBLISHED","textPath":"F:\\warehouse\\SePractice\\testdir\\测试法规2.doc","title":"测试法规2","type":"测试类别2","user":{"id":1,"name":"张三","password":"111111","username":"root"}}]},"headers":{},"statusCode":"OK","statusCodeValue":200} 

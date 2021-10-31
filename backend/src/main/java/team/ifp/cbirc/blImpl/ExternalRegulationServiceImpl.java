@@ -21,10 +21,7 @@ import team.ifp.cbirc.vo.*;
 
 import java.io.*;
 import java.net.URLEncoder;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
@@ -56,6 +53,34 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     private final String REGULATION_LOCK_PREFIX = "RLP";
 
     /**
+     * 获取任意数量的法规
+     *
+     * @param begin
+     * @param len
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> gain(Integer begin, Integer len) {
+        List<ExternalRegulation> resultList;
+
+        //不进行分页
+        if(begin==null && len==null) {
+            resultList = externalRegulationRepository.findAll();
+        }
+        //进行分页
+        else {
+            //判断搜索范围是否有意义 无意义抛出异常
+            checkSearchRangeAndThrowException(begin, len);
+
+            //进行查询
+            assert begin!=null;
+            resultList = externalRegulationRepository.find(begin, len);
+        }
+
+        return ResponseEntity.ok(ResponseVO.buildOK(resultList));
+    }
+
+    /**
      * 根据searchRegulationVO中的信息搜索满足条件的法规
      * 当条件为null则不参与搜索;
      * 如果全为null则返回空集;
@@ -73,14 +98,9 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             vo.setBegin(0);
             vo.setLen(0);
         }
-        else if(vo.getBegin()==null) {
-            ResponseVO.buildBadRequest("只给出了查询长度,没有给出查询起点");
-        }
-        else if(vo.getLen()==null) {
-            ResponseVO.buildBadRequest("只给出了查询起点,没有给出查询长度");
-        }
-        else if(vo.getBegin()<0 || vo.getLen()<=0) {
-            ResponseVO.buildBadRequest("无意义查询(查询起点: " + vo.getBegin() + ",查询长度: " + vo.getLen() + ")");
+        else {
+            //判断搜索范围是否有意义 无意义抛出异常
+            checkSearchRangeAndThrowException(vo.getBegin(), vo.getLen());
         }
 
         SearchRegulationPOJO searchRegulationPOJO = new SearchRegulationPOJO(vo);
@@ -199,12 +219,14 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
      */
     @Override
     public ResponseEntity<ResponseVO> edit(MultipartFile file, EditRegulationVO editRegulationVO) {
+        if (file == null) ResponseVO.buildInternetServerError("服务器异常");
+
         if(editRegulationVO==null || editRegulationVO.getId()==null) {
             ResponseVO.buildBadRequest("没有给出所要修改法规的id");
         }
 
         boolean isAllNull = editRegulationVO.isAllNull();
-        if(file==null && isAllNull) {
+        if(file.isEmpty() && isAllNull) {
             ResponseVO.buildBadRequest("没有做出任何修改");
         }
 
@@ -220,7 +242,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             //保存新上传的文件
             File savedFile = null;
             String oldFilePath = er.getTextPath();
-            if(file != null) {
+            if(!file.isEmpty()) {
                 savedFile = saveFileSafely(file);
                 er.setTextPath(savedFile.getAbsolutePath());
             }
@@ -239,7 +261,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
                 }
 
                 //删除旧文件
-                if(file != null) {
+                if(!file.isEmpty()) {
                     File oldFile = new File(oldFilePath);
                     if(oldFile.exists() && !oldFile.delete()) {
                         System.err.println("编辑法规成功,旧法规对应文件删除失败(path:" + oldFilePath + ")");
@@ -351,6 +373,44 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     }
 
     /**
+     * 进行统计
+     *
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> doStatistics() {
+        List<ExternalRegulation> resultList = externalRegulationRepository.findAll();
+
+        StatisticsVO statisticsVO = new StatisticsVO();
+        Map<String, Integer> map1 = statisticsVO.getCountPerDepartment();
+        Map<String, Integer> map2 = statisticsVO.getCountPerType();
+        Map<Date, Integer> map3 = statisticsVO.getCountPerReleaseDate();
+        Map<Date, Integer> map4 = statisticsVO.getCountPerImplementationDate();
+
+        resultList.parallelStream().forEach(er -> {
+            String key1 = er.getPublishingDepartment();
+            String key2 = er.getType();
+            Date key3 = er.getReleaseDate();
+            Date key4 = er.getImplementationDate();
+
+            map1.put(key1,map1.computeIfAbsent(key1,k -> 0)+1);
+            map2.put(key2,map2.computeIfAbsent(key2,k -> 0)+1);
+            map3.put(key3,map3.computeIfAbsent(key3,k -> 0)+1);
+            map4.put(key4,map4.computeIfAbsent(key4,k -> 0)+1);
+        });
+
+        return ResponseEntity.ok(ResponseVO.buildOK(statisticsVO));
+    }
+
+
+
+    /**
+     * -------------------------------------------------------------------------------------------
+     */
+
+
+
+    /**
      * 尝试执行数据库操作并捕获 databaseOperation
      * @param databaseOperation
      * @return
@@ -400,6 +460,26 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         if(savedFile == null) ResponseVO.buildInternetServerError("服务器错误");
 
         return savedFile;
+    }
+
+    /**
+     * 判断搜索范围是否有效并抛出异常
+     * @param begin
+     * @param len
+     */
+    private void checkSearchRangeAndThrowException(Integer begin,Integer len) {
+        if(begin==null && len==null) {
+            ResponseVO.buildInternetServerError("服务器异常");
+        }
+        else if(begin == null) {
+            ResponseVO.buildBadRequest("只给出了查询长度,没有给出查询起点");
+        }
+        else if(len == null) {
+            ResponseVO.buildBadRequest("只给出了查询起点,没有给出查询长度");
+        }
+        else if(begin < 0 || len <= 0) {
+            ResponseVO.buildBadRequest("无意义查询(查询起点: " + begin + ",查询长度: " + len + ")");
+        }
     }
 
 
