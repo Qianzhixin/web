@@ -28,7 +28,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 @Component
 public class OperLogAspect {
 
-    private Logger logger = LoggerFactory.getLogger(OperLogAspect.class);
+    private final Logger logger = LoggerFactory.getLogger(OperLogAspect.class);
 
     /**
      * 设置操作日志切入点 记录操作日志 在注解的位置切入代码

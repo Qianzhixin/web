@@ -44,7 +44,7 @@ public class ExternalRegulationRepositoryTest {
     public void testSearch() throws Exception {
         SearchRegulationVO searchRegulationVO = new SearchRegulationVO();
         searchRegulationVO.setTitle("测试法规1");
-        searchRegulationVO.setEffectivenessLevel(1);
+        searchRegulationVO.setEffectivenessLevel("1");
         searchRegulationVO.setPublishingDepartment("部门1");
         searchRegulationVO.setBegin(0);
         searchRegulationVO.setLen(0);

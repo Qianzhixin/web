@@ -24,7 +24,7 @@ public class CreateRegulationVO {
 
     private String publishingDepartment;
 
-    private Integer effectivenessLevel;
+    private String effectivenessLevel;
 
     private Date releaseDate;
 
@@ -32,69 +32,6 @@ public class CreateRegulationVO {
 
     private String interpretationDepartment;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getPublishingDepartment() {
-        return publishingDepartment;
-    }
-
-    public void setPublishingDepartment(String publishingDepartment) {
-        this.publishingDepartment = publishingDepartment;
-    }
-
-    public Integer getEffectivenessLevel() {
-        return effectivenessLevel;
-    }
-
-    public void setEffectivenessLevel(Integer effectivenessLevel) {
-        this.effectivenessLevel = effectivenessLevel;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getImplementationDate() {
-        return implementationDate;
-    }
-
-    public void setImplementationDate(Date implementationDate) {
-        this.implementationDate = implementationDate;
-    }
-
-    public String getInterpretationDepartment() {
-        return interpretationDepartment;
-    }
-
-    public void setInterpretationDepartment(String interpretationDepartment) {
-        this.interpretationDepartment = interpretationDepartment;
-    }
 
     /**
      * 检查输入条件合法性(必输项是否为空)

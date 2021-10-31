@@ -29,7 +29,14 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/identify/login")
                 .excludePathPatterns("/identify/register")
                 .excludePathPatterns("/error")
-                .excludePathPatterns("/test/**");
+                .excludePathPatterns("/test/**")
+                .excludePathPatterns("/druid")  // druid监控
+                .excludePathPatterns("/favicon.ico")
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v3/**",
+                        "/swagger-ui.html/**","/swagger-ui/**","/mgr","/mgr/**","/h5","/h5/**")  // spring doc
+                .excludePathPatterns("/services/**") // web services
+                .excludePathPatterns("/static/**")  // 静态资源 外规正文
+        ;
     }
 
 

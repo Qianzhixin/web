@@ -1,6 +1,8 @@
 package team.ifp.cbirc.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import team.ifp.cbirc.po.ExternalRegulation;
 
 import java.lang.reflect.Field;
@@ -12,6 +14,8 @@ import java.util.Date;
  */
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class EditRegulationVO {
 
     private Integer id;
@@ -24,13 +28,14 @@ public class EditRegulationVO {
 
     private String publishingDepartment;
 
-    private Integer effectivenessLevel;
+    private String effectivenessLevel;
 
     private Date releaseDate;
 
     private Date implementationDate;
 
     private String interpretationDepartment;
+
 
     /**
      * 检查修改属性是否全为空

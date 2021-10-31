@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc._enum.RegulationState;
 import team.ifp.cbirc.bl.ExternalRegulationService;
-import team.ifp.cbirc.dao.UserRepository;
 import team.ifp.cbirc.dao.externalRegulation.ExternalRegulationRepository;
 import team.ifp.cbirc.po.ExternalRegulation;
 import team.ifp.cbirc.pojo.SearchRegulationPOJO;
@@ -23,7 +22,6 @@ import java.io.*;
 import java.net.URLEncoder;
 import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -91,10 +89,14 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     @Override
     public ResponseEntity<ResponseVO> search(SearchRegulationVO vo) {
         if(vo.isAllNull()) {
-            ResponseVO.buildBadRequest("所有查询条件都为空");
+//            ResponseVO.buildBadRequest("所有查询条件都为空");
+
+            // 无过滤条件，查询全部
+            List<ExternalRegulation> entityList = externalRegulationRepository.findAll();
+            List<ExternalRegulationVO> resultList = entityList.parallelStream().map(ExternalRegulationVO::new).collect(Collectors.toList());
+            return ResponseEntity.ok(ResponseVO.buildOK(resultList));
         }
         if(vo.getBegin()==null && vo.getLen()==null) {
-            //设置为查询所有
             vo.setBegin(0);
             vo.setLen(0);
         }

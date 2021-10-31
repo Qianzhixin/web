@@ -23,7 +23,7 @@ public class SearchRegulationVO {
 
     private String publishingDepartment;
 
-    private Integer effectivenessLevel;
+    private String effectivenessLevel;
 
     private Date releaseDate;
 
@@ -34,78 +34,6 @@ public class SearchRegulationVO {
     private Integer begin;
 
     private Integer len;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getPublishingDepartment() {
-        return publishingDepartment;
-    }
-
-    public void setPublishingDepartment(String publishingDepartment) {
-        this.publishingDepartment = publishingDepartment;
-    }
-
-    public Integer getEffectivenessLevel() {
-        return effectivenessLevel;
-    }
-
-    public void setEffectivenessLevel(Integer effectivenessLevel) {
-        this.effectivenessLevel = effectivenessLevel;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getImplementationDate() {
-        return implementationDate;
-    }
-
-    public void setImplementationDate(Date implementationDate) {
-        this.implementationDate = implementationDate;
-    }
-
-    public RegulationState getState() {
-        return state;
-    }
-
-    public void setState(RegulationState state) {
-        this.state = state;
-    }
-
-    public Integer getBegin() {
-        return begin;
-    }
-
-    public void setBegin(Integer begin) {
-        this.begin = begin;
-    }
-
-    public Integer getLen() {
-        return len;
-    }
-
-    public void setLen(Integer len) {
-        this.len = len;
-    }
 
     /**
      * @return 判断内容都为空返回 true,否则返回 false

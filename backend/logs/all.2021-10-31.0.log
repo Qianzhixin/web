@@ -72,3 +72,273 @@
 2021-10-31 16:50:37.318 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-获取，操作类型：查询 
 2021-10-31 16:50:37.318 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.gain，请求参数：{"len":"1","begin":"1"}，请求IP：0:0:0:0:0:0:0:1，请求URI：/externalRegulation/gain 
 2021-10-31 16:50:37.319 [http-nio-8080-exec-7] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 16:50:37 CST 2021，返回结果：{"body":{"code":0,"content":[{"effectivenessLevel":1,"id":2,"implementationDate":1619692630000,"inputDate":1619606230000,"interpretationDepartment":"部门1","number":"","publishingDepartment":"部门2","releaseDate":1619692630000,"state":"PUBLISHED","textPath":"F:\\warehouse\\SePractice\\testdir\\测试法规2.doc","title":"测试法规2","type":"测试类别2","user":{"id":1,"name":"张三","password":"111111","username":"root"}}]},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 17:39:52.329 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 3384 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-31 17:39:52.331 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-31 17:39:52.390 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-10-31 17:39:52.391 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-10-31 17:39:53.108 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-31 17:39:53.154 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-31 17:39:53.208 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces. 
+2021-10-31 17:39:53.491 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$4a1d827] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-31 17:39:53.532 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-31 17:39:54.040 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-31 17:39:54.049 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-10-31 17:39:54.049 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-31 17:39:54.050 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-31 17:39:54.147 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-31 17:39:54.147 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1755 ms 
+2021-10-31 17:39:54.395 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-31 17:39:54.447 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-31 17:39:54.577 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-31 17:39:54.666 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting... 
+2021-10-31 17:39:54.667 [restartedMain] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. 
+2021-10-31 17:39:54.889 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed. 
+2021-10-31 17:39:54.903 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-31 17:39:55.669 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-31 17:39:55.678 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 17:39:56.333 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-31 17:39:56.673 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-31 17:39:56.690 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-10-31 17:39:56.707 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-31 17:39:56.715 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 4.914 seconds (JVM running for 6.069) 
+2021-10-31 17:40:43.777 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-10-31 17:40:43.777 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-10-31 17:40:43.778 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms 
+2021-10-31 17:40:47.574 [http-nio-8080-exec-2] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：0:0:0:0:0:0:0:1，请求URI：/identify/login 
+2021-10-31 17:40:47.598 [http-nio-8080-exec-2] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 17:40:47 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:01.242 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Starting MainApplication using Java 1.8.0_281 on GORGIYA-HP with PID 11804 (F:\warehouse\SePractice\web\backend\target\classes started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-31 18:46:01.242 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final 
+2021-10-31 18:46:01.245 [restartedMain] INFO  team.ifp.cbirc.MainApplication - The following profiles are active: dev 
+2021-10-31 18:46:01.289 [restartedMain] INFO  o.s.boot.devtools.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\Gorgiya\.m2\repository\org\liquibase\liquibase-core\4.3.5\liquibase-core-4.3.5.jar referenced one or more files that do not exist: file:/C:/Users/Gorgiya/.m2/repository/org/liquibase/liquibase-core/4.3.5/commons-cli-1.4.jar,file:/C:/Users/Gorgiya/.m2/repository/org/liquibase/liquibase-core/4.3.5/snakeyaml-1.27.jar 
+2021-10-31 18:46:01.289 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-10-31 18:46:01.289 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-10-31 18:46:02.203 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-31 18:46:02.287 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-31 18:46:02.343 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces. 
+2021-10-31 18:46:02.719 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f81a1c0c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-31 18:46:02.745 [restartedMain] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-31 18:46:03.327 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-10-31 18:46:03.339 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-10-31 18:46:03.340 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2021-10-31 18:46:03.340 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.43] 
+2021-10-31 18:46:03.446 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2021-10-31 18:46:03.446 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2156 ms 
+2021-10-31 18:46:03.610 [restartedMain] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2021-10-31 18:46:03.895 [restartedMain] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited 
+2021-10-31 18:46:04.847 [restartedMain] INFO  liquibase.lockservice - Successfully acquired change log lock 
+2021-10-31 18:46:05.283 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/AbstractChangeLogHistoryService.class 
+2021-10-31 18:46:05.284 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogChild.class 
+2021-10-31 18:46:05.284 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryService.class 
+2021-10-31 18:46:05.284 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryServiceFactory$1.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryServiceFactory.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogInclude.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIncludeAll.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator$1.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator$2.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$1.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$ChangeLogParameter.class 
+2021-10-31 18:46:05.285 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$ExpressionExpander.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogProperty.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$ExecType.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$RunStatus.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$ValidationFailOption.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSetStatus.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangelogRewriter$ChangeLogRewriterResult.class 
+2021-10-31 18:46:05.286 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangelogRewriter.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/DatabaseChangeLog$1.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/DatabaseChangeLog.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/IncludeAllFilter.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/MockChangeLogHistoryService.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$1.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$2.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$3.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$4.class 
+2021-10-31 18:46:05.287 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$5.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$Columns.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$ReplaceChangeSetLogic.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/RanChangeSet.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/RollbackContainer.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/StandardChangeLogHistoryService.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/column/LiquibaseColumn.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ActuallyExecutedChangeSetFilter.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/AfterTagChangeSetFilter.class 
+2021-10-31 18:46:05.288 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/AlreadyRanChangeSetFilter.class 
+2021-10-31 18:46:05.289 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ChangeSetFilter.class 
+2021-10-31 18:46:05.289 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ChangeSetFilterResult.class 
+2021-10-31 18:46:05.289 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ContextChangeSetFilter.class 
+2021-10-31 18:46:05.289 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/CountChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/DbmsChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ExecutedAfterChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/IgnoreChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/LabelChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/NotInChangeLogChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/NotRanChangeSetFilter.class 
+2021-10-31 18:46:05.290 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/RanChangeSetFilter.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ShouldRunChangeSetFilter.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/UpToTagChangeSetFilter.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/AbstractChangeExecListener.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeExecListener.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeLogSyncListener.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeLogSyncVisitor.class 
+2021-10-31 18:46:05.291 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeSetVisitor$Direction.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeSetVisitor.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor$1.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor$ChangeLogInfo.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DetermineNumberChangesFollowingVisitor.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ExpectedChangesVisitor.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ListVisitor.class 
+2021-10-31 18:46:05.292 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/LoggingChangeExecListener.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/RollbackListVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/RollbackVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/SkippedChangeSetVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/StatusVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/UpdateVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ValidatingVisitor.class 
+2021-10-31 18:46:05.293 [restartedMain] INFO  liquibase.changelog - Reading resource: liquibase/changelog/changelog-1.0.xml 
+2021-10-31 18:46:06.024 [restartedMain] INFO  liquibase.changelog - Creating database history table with name: internet_facing_plus.DATABASECHANGELOG 
+2021-10-31 18:46:06.293 [restartedMain] INFO  liquibase.changelog - Reading from internet_facing_plus.DATABASECHANGELOG 
+2021-10-31 18:46:06.398 [restartedMain] INFO  liquibase.lockservice - Successfully released change log lock 
+2021-10-31 18:46:06.440 [restartedMain] INFO  liquibase.lockservice - Successfully acquired change log lock 
+2021-10-31 18:46:06.440 [restartedMain] WARN  liquibase.hub - Skipping auto-registration 
+2021-10-31 18:46:08.703 [restartedMain] INFO  liquibase.changelog - SQL in file InternetFacingPlus.sql executed 
+2021-10-31 18:46:08.763 [restartedMain] INFO  liquibase.changelog - ChangeSet liquibase/changelog/changelog-1.0.xml::T1-20211025-001::kylezhtao ran successfully in 2319ms 
+2021-10-31 18:46:08.920 [restartedMain] INFO  liquibase.lockservice - Successfully released change log lock 
+2021-10-31 18:46:08.983 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-31 18:46:09.054 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-31 18:46:09.178 [restartedMain] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-31 18:46:09.278 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-31 18:46:09.780 [restartedMain] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-31 18:46:09.788 [restartedMain] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 18:46:10.367 [restartedMain] INFO  o.a.c.w.s.factory.ReflectionServiceFactoryBean - Creating Service {http://jaxws.cbirc.ifp.team/}LawLibraryServiceImplService from class team.ifp.cbirc.jaxws.LawLibraryService 
+2021-10-31 18:46:10.761 [restartedMain] INFO  org.apache.cxf.endpoint.ServerImpl - Setting the server's publish address to be /lawLibrary 
+2021-10-31 18:46:10.996 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-31 18:46:11.896 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-10-31 18:46:11.919 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-10-31 18:46:11.941 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-10-31 18:46:11.950 [restartedMain] INFO  team.ifp.cbirc.MainApplication - Started MainApplication in 11.289 seconds (JVM running for 12.66) 
+2021-10-31 18:46:22.696 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - Starting ExternalRegulationControllerTest using Java 1.8.0_281 on GORGIYA-HP with PID 10060 (started by Gorgiya in F:\warehouse\SePractice\web\backend) 
+2021-10-31 18:46:22.697 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - The following profiles are active: dev 
+2021-10-31 18:46:22.704 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final 
+2021-10-31 18:46:23.674 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[team.ifp.cbirc]' package. Please check your configuration. 
+2021-10-31 18:46:23.787 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2021-10-31 18:46:23.863 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 2 JPA repository interfaces. 
+2021-10-31 18:46:24.369 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$16c0a77f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2021-10-31 18:46:24.407 [main] INFO  o.s.w.s.a.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] 
+2021-10-31 18:46:24.709 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource 
+2021-10-31 18:46:25.229 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited 
+2021-10-31 18:46:26.538 [main] INFO  liquibase.lockservice - Successfully acquired change log lock 
+2021-10-31 18:46:27.038 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/AbstractChangeLogHistoryService.class 
+2021-10-31 18:46:27.038 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogChild.class 
+2021-10-31 18:46:27.039 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryService.class 
+2021-10-31 18:46:27.039 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryServiceFactory$1.class 
+2021-10-31 18:46:27.039 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogHistoryServiceFactory.class 
+2021-10-31 18:46:27.040 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogInclude.class 
+2021-10-31 18:46:27.040 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIncludeAll.class 
+2021-10-31 18:46:27.040 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator$1.class 
+2021-10-31 18:46:27.041 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator$2.class 
+2021-10-31 18:46:27.041 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogIterator.class 
+2021-10-31 18:46:27.041 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$1.class 
+2021-10-31 18:46:27.042 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$ChangeLogParameter.class 
+2021-10-31 18:46:27.043 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters$ExpressionExpander.class 
+2021-10-31 18:46:27.043 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogParameters.class 
+2021-10-31 18:46:27.044 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeLogProperty.class 
+2021-10-31 18:46:27.044 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$ExecType.class 
+2021-10-31 18:46:27.045 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$RunStatus.class 
+2021-10-31 18:46:27.046 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet$ValidationFailOption.class 
+2021-10-31 18:46:27.047 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSet.class 
+2021-10-31 18:46:27.049 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangeSetStatus.class 
+2021-10-31 18:46:27.050 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangelogRewriter$ChangeLogRewriterResult.class 
+2021-10-31 18:46:27.054 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/ChangelogRewriter.class 
+2021-10-31 18:46:27.055 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/DatabaseChangeLog$1.class 
+2021-10-31 18:46:27.056 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/DatabaseChangeLog.class 
+2021-10-31 18:46:27.059 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/IncludeAllFilter.class 
+2021-10-31 18:46:27.060 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/MockChangeLogHistoryService.class 
+2021-10-31 18:46:27.061 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$1.class 
+2021-10-31 18:46:27.062 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$2.class 
+2021-10-31 18:46:27.062 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$3.class 
+2021-10-31 18:46:27.063 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$4.class 
+2021-10-31 18:46:27.063 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$5.class 
+2021-10-31 18:46:27.063 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$Columns.class 
+2021-10-31 18:46:27.063 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService$ReplaceChangeSetLogic.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/OfflineChangeLogHistoryService.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/RanChangeSet.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/RollbackContainer.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/StandardChangeLogHistoryService.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/column/LiquibaseColumn.class 
+2021-10-31 18:46:27.064 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ActuallyExecutedChangeSetFilter.class 
+2021-10-31 18:46:27.065 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/AfterTagChangeSetFilter.class 
+2021-10-31 18:46:27.065 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/AlreadyRanChangeSetFilter.class 
+2021-10-31 18:46:27.066 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ChangeSetFilter.class 
+2021-10-31 18:46:27.067 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ChangeSetFilterResult.class 
+2021-10-31 18:46:27.068 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ContextChangeSetFilter.class 
+2021-10-31 18:46:27.068 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/CountChangeSetFilter.class 
+2021-10-31 18:46:27.068 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/DbmsChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ExecutedAfterChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/IgnoreChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/LabelChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/NotInChangeLogChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/NotRanChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/RanChangeSetFilter.class 
+2021-10-31 18:46:27.069 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/ShouldRunChangeSetFilter.class 
+2021-10-31 18:46:27.070 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/filter/UpToTagChangeSetFilter.class 
+2021-10-31 18:46:27.070 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/AbstractChangeExecListener.class 
+2021-10-31 18:46:27.070 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeExecListener.class 
+2021-10-31 18:46:27.070 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeLogSyncListener.class 
+2021-10-31 18:46:27.070 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeLogSyncVisitor.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeSetVisitor$Direction.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ChangeSetVisitor.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor$1.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor$ChangeLogInfo.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DBDocVisitor.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/DetermineNumberChangesFollowingVisitor.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ExpectedChangesVisitor.class 
+2021-10-31 18:46:27.071 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ListVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/LoggingChangeExecListener.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/RollbackListVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/RollbackVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/SkippedChangeSetVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/StatusVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/UpdateVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: /liquibase/changelog/visitor/ValidatingVisitor.class 
+2021-10-31 18:46:27.072 [main] INFO  liquibase.changelog - Reading resource: liquibase/changelog/changelog-1.0.xml 
+2021-10-31 18:46:27.920 [main] INFO  liquibase.changelog - Reading from internet_facing_plus.DATABASECHANGELOG 
+2021-10-31 18:46:27.997 [main] INFO  liquibase.lockservice - Successfully released change log lock 
+2021-10-31 18:46:28.047 [main] INFO  liquibase.lockservice - Successfully acquired change log lock 
+2021-10-31 18:46:28.048 [main] WARN  liquibase.hub - Skipping auto-registration 
+2021-10-31 18:46:28.089 [main] INFO  liquibase.lockservice - Successfully released change log lock 
+2021-10-31 18:46:28.821 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2021-10-31 18:46:28.904 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.28.Final 
+2021-10-31 18:46:29.093 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2021-10-31 18:46:29.247 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2021-10-31 18:46:29.927 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2021-10-31 18:46:29.936 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 18:46:30.940 [main] INFO  o.a.c.w.s.factory.ReflectionServiceFactoryBean - Creating Service {http://jaxws.cbirc.ifp.team/}LawLibraryServiceImplService from class team.ifp.cbirc.jaxws.LawLibraryService 
+2021-10-31 18:46:32.060 [main] INFO  org.apache.cxf.endpoint.ServerImpl - Setting the server's publish address to be /lawLibrary 
+2021-10-31 18:46:32.937 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor' 
+2021-10-31 18:46:35.706 [main] INFO  t.i.c.controller.ExternalRegulationControllerTest - Started ExternalRegulationControllerTest in 13.485 seconds (JVM running for 15.317) 
+2021-10-31 18:46:35.968 [main] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet '' 
+2021-10-31 18:46:35.968 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Initializing Servlet '' 
+2021-10-31 18:46:35.970 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms 
+2021-10-31 18:46:36.490 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/login 
+2021-10-31 18:46:36.527 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 18:46:36 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:36.673 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作模块：外规管理-查询，操作类型：查询 
+2021-10-31 18:46:36.673 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.ExternalRegulationController.search，请求参数：{}，请求IP：127.0.0.1，请求URI：/externalRegulation/search 
+2021-10-31 18:46:36.679 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 18:46:36 CST 2021，返回结果：{"body":{"code":0,"content":[{"effectivenessLevel":"1","id":1,"implementationDate":1619692630000,"inputDate":1619606230000,"inputPersonId":1,"inputPersonName":"张三","interpretationDepartment":"部门2","number":"","publishingDepartment":"部门1","releaseDate":1619692630000,"state":"UNPUBLISHED","title":"测试法规1","type":"测试类别1"}]},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:36.711 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.logout，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/logout 
+2021-10-31 18:46:36.712 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 18:46:36 CST 2021，返回结果：{"body":{"code":0,"content":"注销成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:36.727 [main] INFO  o.s.b.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet '' 
+2021-10-31 18:46:36.727 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Initializing Servlet '' 
+2021-10-31 18:46:36.728 [main] INFO  o.s.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms 
+2021-10-31 18:46:36.732 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.login，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/login 
+2021-10-31 18:46:36.732 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 18:46:36 CST 2021，返回结果：{"body":{"code":0,"content":"登录成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:36.734 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 请求方法名：team.ifp.cbirc.controller.IdentifyController.logout，请求参数：{}，请求IP：127.0.0.1，请求URI：/identify/logout 
+2021-10-31 18:46:36.735 [main] INFO  team.ifp.cbirc.util.aop.OperLogAspect - 操作时间：Sun Oct 31 18:46:36 CST 2021，返回结果：{"body":{"code":0,"content":"注销成功"},"headers":{},"statusCode":"OK","statusCodeValue":200} 
+2021-10-31 18:46:36.775 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor' 
+2021-10-31 18:46:36.778 [SpringContextShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2021-10-31 18:46:36.792 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ... 
+2021-10-31 18:46:36.885 [SpringContextShutdownHook] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed 
