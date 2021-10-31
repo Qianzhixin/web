@@ -1,9 +1,8 @@
 # DROP DATABASE IF EXISTS `internet_facing_plus`;
-#
+
 # CREATE DATABASE internet_facing_plus DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE internet_facing_plus;
-
 
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -48,6 +47,12 @@ CREATE TABLE external_regulation
 
 SET FOREIGN_KEY_CHECKS = 1;
 
+ALTER TABLE `external_regulation` ADD INDEX idx_title (`title`);
+ALTER TABLE `external_regulation` ADD INDEX idx_publishing_department (`publishing_department`);
+ALTER TABLE `external_regulation` ADD INDEX idx_effectiveness_level (`effectiveness_level`);
+ALTER TABLE `external_regulation` ADD INDEX idx_number (`number`);
+ALTER TABLE `external_regulation` ADD INDEX idx_release_date (`release_date`);
+ALTER TABLE `external_regulation` ADD INDEX idx_implementation_date (`implementation_date`);
 
 -- 创建默认数据
 
