@@ -141,8 +141,6 @@ public class ExternalRegulationController {
     }
 
     /**
-<<<<<<< HEAD
-=======
      * 仅对法规信息做出修改
      * @param editRegulationVO
      * @return
@@ -158,7 +156,6 @@ public class ExternalRegulationController {
     }
 
     /**
->>>>>>> 04b2409fd8c08ae6f823066cc9b1a5024beef7c4
      * 根据id删除一条未发布法规
      * @param id
      * @return
@@ -207,7 +204,9 @@ public class ExternalRegulationController {
      * 进行统计
      * @return
      */
-    @GetMapping("statistics")
+    @Operation(summary = "外规管理-统计", description = "计算统计当前外规库的一些数据，供前端进行可视化展示")
+    @GetMapping("/statistics")
+    @OperLog(operModul = "外规管理-统计", operType = "统计")
     ResponseEntity<ResponseVO> doStatistics() {
         return externalRegulationService.doStatistics();
     }
