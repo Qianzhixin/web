@@ -39,6 +39,11 @@ public class ExternalRegulationController {
      * @param len
      * @return
      */
+    @Operation(summary = "外规管理-获取", description = "获取指定起始位置以及数量的法规（都不指定则获取全部）")
+    @Parameters({
+            @Parameter(name = "begin", description = "起始位置"),
+            @Parameter(name = "len", description = "数量"),
+    })
     @GetMapping("/gain")
     @OperLog(operModul = "外规管理-获取", operType = "查询")
     ResponseEntity<ResponseVO> gain(@PathParam("begin")Integer begin,@PathParam("len")Integer len) {
