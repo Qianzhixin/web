@@ -18,8 +18,6 @@ import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
-import javax.websocket.server.PathParam;
-
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
@@ -46,7 +44,8 @@ public class ExternalRegulationController {
     })
     @GetMapping("/gain")
     @OperLog(operModul = "外规管理-获取", operType = "查询")
-    ResponseEntity<ResponseVO> gain(@PathParam("begin")Integer begin,@PathParam("len")Integer len) {
+    ResponseEntity<ResponseVO> gain(@RequestParam(value = "begin", required = false)Integer begin,
+                                    @RequestParam(value = "len", required = false)Integer len) {
         return externalRegulationService.gain(begin, len);
     }
 
@@ -79,7 +78,7 @@ public class ExternalRegulationController {
     })
     @GetMapping("/downloadFile")
     @OperLog(operModul = "外规管理-外规正文下载", operType = "下载")
-    ResponseEntity<InputStreamResource> downloadFile(@PathParam("id") int id) {
+    ResponseEntity<InputStreamResource> downloadFile(@RequestParam("id") int id) {
         return externalRegulationService.downloadFile(id);
     }
 
