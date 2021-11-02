@@ -34,10 +34,12 @@ for json_path in json_paths:
         dic = json.load(f)
 
     for k in dic.keys():
-        if dic[k] is None:
-            dic[k] = ''
+        if k == "implementation_date" and dic[k] == "":
+            dic[k] = None
+        elif dic[k] is None:
+            dic[k] = ""
 
-    doc_name = json_path.split('\\')[-1].replace('json', 'doc')
+    doc_name = json_path.split('\\')[-1].replace('json', 'docx')
     doc_source_path = data_path + '\\' + doc_name
     doc_tatget_path = data_root_path + '\\' + doc_name
     # 复制正文doc到data_root_path
@@ -45,14 +47,11 @@ for json_path in json_paths:
 
     sql = "INSERT INTO external_regulation (`title`, `number`, `type`, `publishing_department`, `effectiveness_level`, " \
           "`release_date`, `implementation_date`, `interpretation_department`, `input_person_id`, `input_date`, " \
-          "`text_path`, `state`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % \
-          (dic['title'], dic['number'], dic['type'], dic['publishing_department'], dic['effectiveness_level'],
-           dic['release_date'], dic['implementation_date'], dic['interpretation_department'], 1,
-           datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-           doc_name,
-           dic['state'])
+          "`text_path`, `state`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     try:
-        cursor.execute(sql)
+        cursor.execute(sql, [dic['title'], dic['number'], dic['type'], dic['publishing_department'], dic['effectiveness_level'],
+           dic['release_date'], dic['implementation_date'], dic['interpretation_department'], 1, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+           doc_name, dic['state']])
         conn.commit()
     except Exception:
         traceback.print_exc()
