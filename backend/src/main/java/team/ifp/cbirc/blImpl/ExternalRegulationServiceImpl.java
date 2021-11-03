@@ -52,6 +52,8 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
      */
     private final String REGULATION_LOCK_PREFIX = "RLP";
 
+    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
+
     /**
      * 获取任意数量的法规
      *
@@ -391,9 +393,9 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         Map<String, Integer> map3 = statisticsVO.getCountPerReleaseDate();
         Map<String, Integer> map4 = statisticsVO.getCountPerImplementationDate();
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
 
-        resultList.parallelStream().forEach(er -> {
+
+        resultList.forEach(er -> {
             String key1 = er.getPublishingDepartment();
             String key2 = er.getType();
             Date releaseDate = er.getReleaseDate();
