@@ -20,6 +20,8 @@ import team.ifp.cbirc.vo.*;
 
 import java.io.*;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
@@ -386,14 +388,16 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         StatisticsVO statisticsVO = new StatisticsVO();
         Map<String, Integer> map1 = statisticsVO.getCountPerDepartment();
         Map<String, Integer> map2 = statisticsVO.getCountPerType();
-        Map<Date, Integer> map3 = statisticsVO.getCountPerReleaseDate();
-        Map<Date, Integer> map4 = statisticsVO.getCountPerImplementationDate();
+        Map<String, Integer> map3 = statisticsVO.getCountPerReleaseDate();
+        Map<String, Integer> map4 = statisticsVO.getCountPerImplementationDate();
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
 
         resultList.parallelStream().forEach(er -> {
             String key1 = er.getPublishingDepartment();
             String key2 = er.getType();
-            Date key3 = er.getReleaseDate();
-            Date key4 = er.getImplementationDate();
+            String key3 = dateFormat.format(er.getReleaseDate());
+            String key4 = dateFormat.format(er.getImplementationDate());
 
             map1.put(key1,map1.computeIfAbsent(key1,k -> 0)+1);
             map2.put(key2,map2.computeIfAbsent(key2,k -> 0)+1);

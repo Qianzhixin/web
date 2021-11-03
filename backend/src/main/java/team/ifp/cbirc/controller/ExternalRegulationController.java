@@ -141,8 +141,6 @@ public class ExternalRegulationController {
     }
 
     /**
-<<<<<<< HEAD
-=======
      * 仅对法规信息做出修改
      * @param editRegulationVO
      * @return
@@ -158,7 +156,6 @@ public class ExternalRegulationController {
     }
 
     /**
->>>>>>> 04b2409fd8c08ae6f823066cc9b1a5024beef7c4
      * 根据id删除一条未发布法规
      * @param id
      * @return

@@ -25,8 +25,8 @@ public class StatisticsVO {
 
     Map<String,Integer> countPerType;
 
-    Map<Date,Integer> countPerReleaseDate;
+    Map<String,Integer> countPerReleaseDate;
 
-    Map<Date,Integer> countPerImplementationDate;
+    Map<String,Integer> countPerImplementationDate;
 
 }
