@@ -58,7 +58,7 @@ public class ExternalRegulationControllerTest {
         requestJsonObj.put("number","");
         requestJsonObj.put("publishingDepartment","部门1");
         requestJsonObj.put("effectivenessLevel",1);
-        requestJsonObj.put("releaseDate","2021-04-29 18:37:10");
+//        requestJsonObj.put("releaseDate","2021-04-29 18:37:10");
         requestJsonObj.put("state","UNPUBLISHED");
 
         String requestBody = requestJsonObj.toJSONString();
