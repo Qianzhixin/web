@@ -18,8 +18,6 @@ import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
-import javax.websocket.server.PathParam;
-
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
@@ -39,9 +37,15 @@ public class ExternalRegulationController {
      * @param len
      * @return
      */
+    @Operation(summary = "外规管理-获取", description = "获取指定起始位置以及数量的法规（都不指定则获取全部）")
+    @Parameters({
+            @Parameter(name = "begin", description = "起始位置"),
+            @Parameter(name = "len", description = "数量"),
+    })
     @GetMapping("/gain")
     @OperLog(operModul = "外规管理-获取", operType = "查询")
-    ResponseEntity<ResponseVO> gain(@PathParam("begin")Integer begin,@PathParam("len")Integer len) {
+    ResponseEntity<ResponseVO> gain(@RequestParam(value = "begin", required = false)Integer begin,
+                                    @RequestParam(value = "len", required = false)Integer len) {
         return externalRegulationService.gain(begin, len);
     }
 
@@ -74,7 +78,7 @@ public class ExternalRegulationController {
     })
     @GetMapping("/downloadFile")
     @OperLog(operModul = "外规管理-外规正文下载", operType = "下载")
-    ResponseEntity<InputStreamResource> downloadFile(@PathParam("id") int id) {
+    ResponseEntity<InputStreamResource> downloadFile(@RequestParam("id") int id) {
         return externalRegulationService.downloadFile(id);
     }
 
@@ -204,7 +208,9 @@ public class ExternalRegulationController {
      * 进行统计
      * @return
      */
-    @GetMapping("statistics")
+    @Operation(summary = "外规管理-统计", description = "计算统计当前外规库的一些数据，供前端进行可视化展示")
+    @GetMapping("/statistics")
+    @OperLog(operModul = "外规管理-统计", operType = "统计")
     ResponseEntity<ResponseVO> doStatistics() {
         return externalRegulationService.doStatistics();
     }
