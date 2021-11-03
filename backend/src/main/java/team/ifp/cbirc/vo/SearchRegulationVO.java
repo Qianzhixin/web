@@ -25,9 +25,13 @@ public class SearchRegulationVO {
 
     private String effectivenessLevel;
 
-    private Date releaseDate;
+    private Date fromReleaseDate;
 
-    private Date implementationDate;
+    private Date toReleaseDate;
+
+    private Date fromImplementationDate;
+
+    private Date toImplementationDate;
 
     private RegulationState state;
 
@@ -43,8 +47,10 @@ public class SearchRegulationVO {
                 number == null &&
                 publishingDepartment == null &&
                 effectivenessLevel == null &&
-                releaseDate == null &&
-                implementationDate == null &&
+                fromReleaseDate == null &&
+                toReleaseDate == null &&
+                fromImplementationDate == null &&
+                toImplementationDate == null &&
                 state == null;
     }
 

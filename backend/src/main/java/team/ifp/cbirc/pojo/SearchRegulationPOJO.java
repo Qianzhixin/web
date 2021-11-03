@@ -44,13 +44,17 @@ public class SearchRegulationPOJO {
         return content.getEffectivenessLevel();
     }
 
-    public Date getReleaseDate() {
-        return content.getReleaseDate();
+    public Date getFromReleaseDate() {
+        return content.getFromReleaseDate();
     }
 
-    public Date getImplementationDate() {
-        return content.getImplementationDate();
+    public Date getToReleaseDate() { return content.getToReleaseDate(); }
+
+    public Date getFromImplementationDate() {
+        return content.getFromImplementationDate();
     }
+
+    public Date getToImplementationDate() { return content.getToImplementationDate(); }
 
     public RegulationState getState() {
         return content.getState();
