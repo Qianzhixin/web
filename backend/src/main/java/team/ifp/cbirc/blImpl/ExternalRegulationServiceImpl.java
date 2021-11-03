@@ -396,8 +396,15 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         resultList.parallelStream().forEach(er -> {
             String key1 = er.getPublishingDepartment();
             String key2 = er.getType();
-            String key3 = dateFormat.format(er.getReleaseDate());
-            String key4 = dateFormat.format(er.getImplementationDate());
+            Date releaseDate = er.getReleaseDate();
+            Date implementationDate = er.getImplementationDate();
+            String key3 = dateFormat.format(releaseDate);
+            String key4;
+            if(implementationDate != null){
+                key4 = dateFormat.format(er.getImplementationDate());
+            }else{
+                key4 = "";
+            }
 
             map1.put(key1,map1.computeIfAbsent(key1,k -> 0)+1);
             map2.put(key2,map2.computeIfAbsent(key2,k -> 0)+1);
