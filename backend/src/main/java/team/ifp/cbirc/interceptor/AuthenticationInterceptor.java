@@ -8,7 +8,6 @@ import team.ifp.cbirc.userdata.UserSession;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,9 +30,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession();
+        //放行OPTIONS预检请求
+        if(request.getMethod().equalsIgnoreCase("OPTIONS")) return true;
 
-        Object user = session.getAttribute(UserSession.USER_INFO);
+        //阻止未登录请求
+        Object user = request.getSession().getAttribute(UserSession.USER_INFO);
         if(user == null){
             response.setStatus(401);
             response.setHeader("Content-Type", "application/json;charset=UTF-8");
