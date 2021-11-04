@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import team.ifp.cbirc.po.ExternalRegulation;
 
-import java.lang.reflect.Field;
 import java.util.Date;
 
 /**

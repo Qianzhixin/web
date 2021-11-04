@@ -393,8 +393,6 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         Map<String, Integer> map3 = statisticsVO.getCountPerReleaseDate();
         Map<String, Integer> map4 = statisticsVO.getCountPerImplementationDate();
 
-
-
         resultList.forEach(er -> {
             String key1 = er.getPublishingDepartment();
             String key2 = er.getType();

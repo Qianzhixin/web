@@ -73,7 +73,7 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
         //isFirst && !(isFirst = false)判断结果只有第一次为true,后续为false
         boolean isFirst = true;
         if(pojo.getTitle() != null){
-            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" title = :title ");
+            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" title like :title ");
         }
         if(pojo.getNumber() != null){
             hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" number = :number ");
@@ -82,7 +82,7 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
             hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" effectiveness_level = :effectiveness_level ");
         }
         if(pojo.getPublishingDepartment() != null) {
-            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" publishing_department = :publishing_department ");
+            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" publishing_department like :publishing_department ");
         }
         if(pojo.getState() != null) {
             hqlBuilder.append(isFirst && !(isFirst = false) ? "where" : "and").append(" state = :state ");
@@ -112,10 +112,10 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
     private TypedQuery<ExternalRegulation> makeQuery(SearchRegulationPOJO pojo, String hql) {
         TypedQuery<ExternalRegulation> query = entityManager.createQuery(hql,ExternalRegulation.class);
 
-        if(pojo.getTitle() != null)query.setParameter("title",pojo.getTitle());
+        if(pojo.getTitle() != null)query.setParameter("title",  "%" + pojo.getTitle() + "%");
         if(pojo.getNumber() != null)query.setParameter("number",pojo.getNumber());
         if(pojo.getEffectivenessLevel() != null)query.setParameter("effectiveness_level",pojo.getEffectivenessLevel());
-        if(pojo.getPublishingDepartment() != null)query.setParameter("publishing_department",pojo.getPublishingDepartment());
+        if(pojo.getPublishingDepartment() != null)query.setParameter("publishing_department","%" + pojo.getPublishingDepartment() + "%");
         if(pojo.getFromReleaseDate() != null)query.setParameter("from_release_date",pojo.getFromReleaseDate());
         if(pojo.getToReleaseDate() != null)query.setParameter("to_release_date",pojo.getToReleaseDate());
         if(pojo.getFromImplementationDate() != null)query.setParameter("from_implementation_date",pojo.getFromImplementationDate());
