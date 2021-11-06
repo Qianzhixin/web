@@ -24,6 +24,8 @@ spring:
       stat-view-servlet:  # /druid监控需经过登录认证才能访问
         login-username: admin
         login-password: 123456
+        enabled: true
+        url-pattern: /druid/*
 
   jpa:
     database: mysql
