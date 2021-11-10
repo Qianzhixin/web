@@ -146,6 +146,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         InputStreamResource inputStreamResource;
         try {
             file = new File(er.getTextPath());
+            boolean a = file.exists();
             InputStream inputStream = new FileInputStream(file);
             inputStreamResource = new InputStreamResource(inputStream);
         } catch (FileNotFoundException e) {
@@ -159,7 +160,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         HttpHeaders headers;
         try {
             headers = new HttpHeaders();
-            headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+            headers.setCacheControl("no-cache, no-store, must-revalidate");
             headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", URLEncoder.encode(file.getName(),"UTF-8")));
             headers.add("Pragma", "no-cache");
             headers.add("Expires", "0");
