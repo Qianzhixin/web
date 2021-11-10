@@ -145,7 +145,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         File file = null;
         InputStreamResource inputStreamResource;
         try {
-            file = new File(er.getTextPath());
+            file = new File(DATA_ROOT_PATH + File.separator + er.getTextPath());
             InputStream inputStream = new FileInputStream(file);
             inputStreamResource = new InputStreamResource(inputStream);
         } catch (FileNotFoundException e) {
