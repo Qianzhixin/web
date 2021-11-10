@@ -225,14 +225,12 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
      */
     @Override
     public ResponseEntity<ResponseVO> edit(MultipartFile file, EditRegulationVO editRegulationVO) {
-        if (file == null) ResponseVO.buildInternetServerError("服务器异常");
-
         if(editRegulationVO==null || editRegulationVO.getId()==null) {
             ResponseVO.buildBadRequest("没有给出所要修改法规的id");
         }
 
         boolean isAllNull = editRegulationVO.isAllNull();
-        if(file.isEmpty() && isAllNull) {
+        if(file==null && isAllNull) {
             ResponseVO.buildBadRequest("没有做出任何修改");
         }
 
@@ -248,7 +246,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
             //保存新上传的文件
             File savedFile = null;
             String oldFilePath = er.getTextPath();
-            if(!file.isEmpty()) {
+            if(file!=null) {
                 savedFile = saveFileSafely(file);
                 er.setTextPath(savedFile.getAbsolutePath());
             }
@@ -267,7 +265,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
                 }
 
                 //删除旧文件
-                if(!file.isEmpty()) {
+                if(file != null) {
                     File oldFile = new File(oldFilePath);
                     if(oldFile.exists() && !oldFile.delete()) {
                         System.err.println("编辑法规成功,旧法规对应文件删除失败(path:" + oldFilePath + ")");
