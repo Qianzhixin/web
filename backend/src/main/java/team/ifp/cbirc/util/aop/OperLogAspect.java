@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -92,7 +93,12 @@ public class OperLogAspect {
                     request.getRemoteAddr(),
                     request.getRequestURI()
                     ));
-            logger.info(String.format("操作时间：%s，返回结果：%s", new Date(), JSON.toJSONString(keys)));
+            try{
+                logger.info(String.format("操作时间：%s，返回结果：%s", new Date(), JSON.toJSONString(keys)));
+            }catch (JSONException e){
+                logger.info(String.format("操作时间：%s，返回结果无法序列化", new Date()));
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
