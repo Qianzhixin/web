@@ -127,7 +127,10 @@ public class ExternalRegulationController {
     })
     @PostMapping("/edit")
     @OperLog(operModul = "外规管理-修改外规记录与正文", operType = "修改")
-    ResponseEntity<ResponseVO> edit(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
+    ResponseEntity<ResponseVO> edit(
+            @RequestParam(value = "file",required = false) MultipartFile file,
+            @RequestParam("info") String jsonInfo
+    ) {
         //解析 json 对象
         EditRegulationVO editRegulationVO = null;
         if(jsonInfo != null) {
