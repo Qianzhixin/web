@@ -145,8 +145,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         File file = null;
         InputStreamResource inputStreamResource;
         try {
-            file = new File(er.getTextPath());
-            boolean a = file.exists();
+            file = new File(DATA_ROOT_PATH + File.separator + er.getTextPath());
             InputStream inputStream = new FileInputStream(file);
             inputStreamResource = new InputStreamResource(inputStream);
         } catch (FileNotFoundException e) {
@@ -453,7 +452,7 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
         saveFileLock.lock();
         try {
             do {
-                String savePath = DATA_ROOT_PATH + File.separator +
+                String savePath =
                         FileUtil.getFileNamePrefix(Objects.requireNonNull(file.getOriginalFilename())) + //去除后缀文件名
                         UUID.randomUUID().toString() + "." + //拼接uuid
                         FileUtil.getFileNameSuffix(file.getOriginalFilename()); //
