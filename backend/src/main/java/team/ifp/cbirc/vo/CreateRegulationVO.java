@@ -3,6 +3,7 @@ package team.ifp.cbirc.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import team.ifp.cbirc._enum.Department;
 
 import java.util.Date;
 

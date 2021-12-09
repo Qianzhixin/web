@@ -30,7 +30,7 @@ spring:
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: none
     open-in-view: true
@@ -41,7 +41,7 @@ spring:
 
   web:
     resources:
-      static-locations: file:///d:/warehouse/SePractice/testdir # 外规正文存放路径
+      static-locations: file:///d:/warehouse/SePractice/data # 外规正文存放路径
   mvc:
     static-path-pattern: /static/**  # http请求路由
 
@@ -53,4 +53,4 @@ logging:
 
 myconfig:
   cors-address: http://localhost:8000
-  data-root-path: F:\warehouse\SePractice\testdir
+  data-root-path: F:\warehouse\SePractice\data

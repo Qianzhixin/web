@@ -31,12 +31,15 @@ public enum RegulationState {
      * @return
      */
     @JsonCreator
-    public static RegulationState getStateFromCode(String value) {
-        for (RegulationState state:RegulationState.values()) {
-            if (state.getName().equals(value)) {
-                return state;
+    public static RegulationState getFromCode(String value) {
+        for (RegulationState e:RegulationState.values()) {
+            if (e.getName().equals(value)) {
+                return e;
             }
         }
         return null;
     }
+
+
+
 }

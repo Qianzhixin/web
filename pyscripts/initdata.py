@@ -20,15 +20,17 @@ def findAllFilesWithSpecifiedSuffix(target_dir, target_suffix="json"):
     return find_res
 
 
-data_path = "D:\\result"  # 爬取数据的路径
-data_root_path = "D:\\warehouse\\SePractice\\testdir"  # 正文文件存储的根路径
+data_path = "F:\\warehouse\\SePractice\\result"  # 爬取数据的路径
+data_root_path = "F:\\warehouse\\SePractice\\data"  # 正文文件存储的根路径
 json_paths = findAllFilesWithSpecifiedSuffix(data_path)
 
 conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='123456',
                        db='internet_facing_plus', charset='utf8')
 cursor = conn.cursor()
 
+
 for json_path in json_paths:
+
     dic = {}
     with open(json_path, 'r', encoding="utf-8") as f:
         dic = json.load(f)

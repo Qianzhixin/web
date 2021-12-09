@@ -2,7 +2,6 @@ package team.ifp.cbirc.bl;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.vo.*;
 
@@ -11,6 +10,13 @@ import team.ifp.cbirc.vo.*;
  * @date 2021/10/10
  */
 public interface ExternalRegulationService {
+
+    /**
+     * 根据id获取某一外规信息
+     * @param id
+     * @return
+     */
+    ResponseEntity<ResponseVO> get(Integer id);
 
     /**
      * 获取任意数量的法规

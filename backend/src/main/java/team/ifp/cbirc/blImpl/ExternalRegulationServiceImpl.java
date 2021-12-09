@@ -55,6 +55,23 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
 
     /**
+     * 根据id获取某一外规信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> get(Integer id) {
+        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+
+        if(!byId.isPresent()) {
+            ResponseVO.buildNotFound("所寻找外规不存在");
+        }
+
+        return ResponseEntity.ok(ResponseVO.buildOK(byId.get()));
+    }
+
+    /**
      * 获取任意数量的法规
      *
      * @param begin
@@ -412,7 +429,6 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
 
         return ResponseEntity.ok(ResponseVO.buildOK(statisticsVO));
     }
-
 
 
     /**

@@ -31,6 +31,12 @@ public class ExternalRegulationController {
     @Autowired
     private ExternalRegulationService externalRegulationService;
 
+    @Operation(summary = "外规管理-获取", description = "根据id获取某一外规信息")
+    @GetMapping("/externalRegulation")
+    ResponseEntity<ResponseVO> getExternalRegulation(@RequestParam("id") int id) {
+        return externalRegulationService.get(id);
+    }
+
     /**
      * 获取任意数量的法规
      * @param begin
@@ -217,5 +223,6 @@ public class ExternalRegulationController {
     ResponseEntity<ResponseVO> doStatistics() {
         return externalRegulationService.doStatistics();
     }
+
 
 }

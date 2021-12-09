@@ -6,7 +6,7 @@ USE internet_facing_plus;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
--- user表
+-- 用户表
 
 DROP TABLE IF EXISTS `user`;
 
@@ -21,7 +21,7 @@ CREATE TABLE user
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- external_regulation表
+-- 外规表
 
 DROP TABLE IF EXISTS `external_regulation`;
 
@@ -53,6 +53,24 @@ ALTER TABLE `external_regulation` ADD INDEX idx_effectiveness_level (`effectiven
 ALTER TABLE `external_regulation` ADD INDEX idx_number (`number`);
 ALTER TABLE `external_regulation` ADD INDEX idx_release_date (`release_date`);
 ALTER TABLE `external_regulation` ADD INDEX idx_implementation_date (`implementation_date`);
+
+-- 关系表
+
+DROP TABLE IF EXISTS `triple`;
+
+CREATE TABLE triple
+(
+    id INT UNIQUE NOT NULL AUTO_INCREMENT COMMENT '主键',
+    s_id INT COMMENT '主语id',
+    s_title VARCHAR(255) NOT NULL COMMENT '主语标题',
+    t_id INT COMMENT '宾语id',
+    t_title VARCHAR(255) NOT NULL COMMENT '宾语标题',
+    predicate INT NOT NULL COMMENT '谓语',
+    CONSTRAINT to_abolish_pk
+        PRIMARY KEY (id),
+        FOREIGN KEY (s_id) REFERENCES external_regulation(id),
+        FOREIGN KEY (t_id) REFERENCES external_regulation(id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- 创建默认数据
 

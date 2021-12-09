@@ -82,7 +82,7 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
             hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" effectiveness_level = :effectiveness_level ");
         }
         if(pojo.getPublishingDepartment() != null) {
-            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" publishing_department like :publishing_department ");
+            hqlBuilder.append((isFirst && !(isFirst = false)) ? "where" : "and").append(" publishing_department = :publishing_department ");
         }
         if(pojo.getState() != null) {
             hqlBuilder.append(isFirst && !(isFirst = false) ? "where" : "and").append(" state = :state ");
@@ -115,7 +115,7 @@ public class ExternalRegulationRepositoryImpl implements ExternalRegulationDao {
         if(pojo.getTitle() != null)query.setParameter("title",  "%" + pojo.getTitle() + "%");
         if(pojo.getNumber() != null)query.setParameter("number",pojo.getNumber());
         if(pojo.getEffectivenessLevel() != null)query.setParameter("effectiveness_level",pojo.getEffectivenessLevel());
-        if(pojo.getPublishingDepartment() != null)query.setParameter("publishing_department","%" + pojo.getPublishingDepartment() + "%");
+        if(pojo.getPublishingDepartment() != null)query.setParameter("publishing_department",pojo.getPublishingDepartment());
         if(pojo.getFromReleaseDate() != null)query.setParameter("from_release_date",pojo.getFromReleaseDate());
         if(pojo.getToReleaseDate() != null)query.setParameter("to_release_date",pojo.getToReleaseDate());
         if(pojo.getFromImplementationDate() != null)query.setParameter("from_implementation_date",pojo.getFromImplementationDate());
