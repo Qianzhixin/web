@@ -14,6 +14,7 @@ import team.ifp.cbirc.pojo.NodePOJO;
 import team.ifp.cbirc.pojo.TypePOJO;
 import team.ifp.cbirc.vo.KGVO;
 import team.ifp.cbirc.vo.ResponseVO;
+import team.ifp.cbirc.vo.VersionChangesVO;
 
 import java.util.*;
 
@@ -83,6 +84,45 @@ public class KGServiceImpl implements KGService {
 
         return ResponseEntity.ok(ResponseVO.buildOK(kgvo));
     }
+
+    /**
+     * 获取某一法律版本变迁
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseEntity<ResponseVO> versionChanges(Integer id) {
+        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+        if(!byId.isPresent()) {
+            ResponseVO.buildNotFound("所请求的法规不存在");
+        }
+
+        ExternalRegulation externalRegulation = byId.get();
+
+        VersionChangesVO versionChangesVO = new VersionChangesVO();
+        versionChangesVO.addChanges(externalRegulation.getReleaseDate(),"发布",null,null);
+        versionChangesVO.addChanges(externalRegulation.getImplementationDate(),"实施",null,null);
+
+        List<Triple> abolishList = tripleRepository.findByTargetIdAndPredicate(id, Predicate.TO_ABOLISH);
+        for (Triple triple : abolishList) {
+            Optional<ExternalRegulation> byId1 = externalRegulationRepository.findById(triple.getSourceId());
+            if (!byId1.isPresent()) {
+                ResponseVO.buildInternetServerError("服务器错误");
+            }
+            ExternalRegulation source = byId1.get();
+            String titleAndNumber = "《" + source.getTitle() + "》" + "（" + source.getNumber() + "）";
+            versionChangesVO.addChanges(source.getImplementationDate(),"使废止", source.getId(), titleAndNumber);
+        }
+
+        return ResponseEntity.ok(ResponseVO.buildOK(versionChangesVO));
+    }
+
+
+
+
+
+
 
     private String buildNodeUri(String nodeName) {
         return URI_PREFIX + "/externalRegulation/" + nodeName;

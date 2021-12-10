@@ -16,4 +16,11 @@ public interface KGService {
      */
     ResponseEntity<ResponseVO> getKGInfo(Integer id);
 
+    /**
+     * 获取某一法律版本变迁
+     * @param id
+     * @return
+     */
+    ResponseEntity<ResponseVO> versionChanges(Integer id);
+
 }
