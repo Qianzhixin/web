@@ -123,6 +123,7 @@ def separateTitleNumber(title_number):
     return [title, number]
 
 
+# 数据库中 使废止：0 上位法：1 下位法：2
 def main():
     global conn
 
@@ -130,11 +131,11 @@ def main():
 
     # 初始化上位法关系
     dat = excel(path, 'Sheet1')
-    initTriples(dat, 2)
+    initTriples(dat, 1)
 
     # 初始化使废止关系
     dat = excel(path, 'Sheet2')
-    initTriples(dat, 1)
+    initTriples(dat, 0)
 
     conn.close()
 
