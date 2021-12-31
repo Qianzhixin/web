@@ -126,11 +126,14 @@ def separateTitleNumber(title_number):
 def main():
     global conn
 
-    path = 'C:\\Users\\Gorgiya\\Desktop\\data\\5635-192704.xls'
-    sheet = 'Sheet1'
+    path = 'C:\\Users\\Gorgiya\\Desktop\\data\\total.xls'
 
-    dat = excel(path, sheet)
+    # 初始化上位法关系
+    dat = excel(path, 'Sheet1')
+    initTriples(dat, 2)
 
+    # 初始化使废止关系
+    dat = excel(path, 'Sheet2')
     initTriples(dat, 1)
 
     conn.close()
