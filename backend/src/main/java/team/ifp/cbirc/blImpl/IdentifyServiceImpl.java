@@ -29,6 +29,15 @@ public class IdentifyServiceImpl implements IdentifyService {
     private static final ReentrantLock buildUserLock = new ReentrantLock();
 
     @Override
+    public ResponseEntity<ResponseVO> currentUser() {
+        User user = UserSession.getUser();
+        if(user == null) {
+            ResponseVO.buildInternetServerError("找不到登陆用户信息");
+        }
+        return ResponseEntity.ok(ResponseVO.buildOK(user));
+    }
+
+    @Override
     public ResponseEntity<ResponseVO> login(UserVO userVO) {
         if(userVO.getUsername() == null) {
             ResponseVO.buildBadRequest("用户名不可为空");

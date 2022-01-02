@@ -11,6 +11,8 @@ import team.ifp.cbirc.vo.*;
  */
 public interface ExternalRegulationService {
 
+    String getRegulationHtmlPath(int id);
+
     /**
      * 根据id获取某一外规信息
      * @param id

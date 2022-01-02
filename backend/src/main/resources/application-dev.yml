@@ -45,6 +45,7 @@ spring:
   mvc:
     static-path-pattern: /static/**  # http请求路由
 
+
 server:
   port: 8080
 
@@ -54,3 +55,4 @@ logging:
 myconfig:
   cors-address: http://localhost:8000
   data-root-path: F:\warehouse\SePractice\data
+  resource-root-path: file:///f:/warehouse/SePractice/data/

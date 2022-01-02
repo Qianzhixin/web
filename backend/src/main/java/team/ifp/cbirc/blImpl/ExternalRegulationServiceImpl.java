@@ -198,6 +198,33 @@ public class ExternalRegulationServiceImpl implements ExternalRegulationService 
     }
 
     /**
+     * 获取外规文件html路径
+     * @param id
+     * @return
+     */
+    @Override
+    public String getRegulationHtmlPath(int id) {
+        Optional<ExternalRegulation> byId = externalRegulationRepository.findById(id);
+        if(!byId.isPresent()) {
+            ResponseVO.buildNotFound("所请求文件不存在");
+        }
+
+        ExternalRegulation er = byId.get();
+        String fileName = er.getTextPath().split("\\.")[0] + ".html";
+        String filePath = DATA_ROOT_PATH + File.separator + fileName;
+
+        File file = new File(filePath);
+        if(!file.exists()) {
+            ResponseVO.buildNotFound("所请求文件不存在");
+        }
+
+        String req = "/data/" + fileName;
+        System.out.println(req);
+        return req;
+
+    }
+
+    /**
      * 根据所给定的信息创建外规记录
      *
      * @param file

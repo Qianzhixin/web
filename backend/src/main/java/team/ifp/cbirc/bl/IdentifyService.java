@@ -11,6 +11,8 @@ import team.ifp.cbirc.vo.UserVO;
  */
 public interface IdentifyService {
 
+    ResponseEntity<ResponseVO> currentUser();
+
     /**
      * 用户登录
      * @param userVO

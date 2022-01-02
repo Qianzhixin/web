@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import team.ifp.cbirc.bl.ExternalRegulationService;
@@ -18,13 +19,15 @@ import team.ifp.cbirc.vo.CreateRegulationVO;
 import team.ifp.cbirc.vo.ResponseVO;
 import team.ifp.cbirc.vo.SearchRegulationVO;
 
+import javax.websocket.server.PathParam;
+
 /**
  * @author GuoXinyuan
  * @date 2021/10/9
  */
 
 @Tag(name = "外规管理接口", description = "外规的CRUD操作")
-@RestController
+@Controller
 @RequestMapping("/externalRegulation")
 public class ExternalRegulationController {
 
@@ -33,6 +36,7 @@ public class ExternalRegulationController {
 
     @Operation(summary = "外规管理-获取", description = "根据id获取某一外规信息")
     @GetMapping("/externalRegulation")
+    @ResponseBody
     ResponseEntity<ResponseVO> getExternalRegulation(@RequestParam("id") int id) {
         return externalRegulationService.get(id);
     }
@@ -49,6 +53,7 @@ public class ExternalRegulationController {
             @Parameter(name = "len", description = "数量"),
     })
     @GetMapping("/gain")
+    @ResponseBody
     @OperLog(operModul = "外规管理-获取", operType = "查询")
     ResponseEntity<ResponseVO> gain(@RequestParam(value = "begin", required = false)Integer begin,
                                     @RequestParam(value = "len", required = false)Integer len) {
@@ -68,6 +73,7 @@ public class ExternalRegulationController {
             @Parameter(name = "searchRegulationVO", description = "搜索法规值对象", required = true),
     })
     @PostMapping("/search")
+    @ResponseBody
     @OperLog(operModul = "外规管理-查询", operType = "查询")
     ResponseEntity<ResponseVO> search(@RequestBody SearchRegulationVO searchRegulationVO) {
         return externalRegulationService.search(searchRegulationVO);
@@ -83,9 +89,15 @@ public class ExternalRegulationController {
             @Parameter(name = "id", description = "法规id", required = true),
     })
     @GetMapping("/downloadFile")
+    @ResponseBody
     @OperLog(operModul = "外规管理-外规正文下载", operType = "下载")
     ResponseEntity<InputStreamResource> downloadFile(@RequestParam("id") int id) {
         return externalRegulationService.downloadFile(id);
+    }
+
+    @RequestMapping("/html")
+    String getRegulationHtml(@PathParam("id")Integer id) {
+        return externalRegulationService.getRegulationHtmlPath(id);
     }
 
     /**
@@ -100,6 +112,7 @@ public class ExternalRegulationController {
             @Parameter(name = "jsonInfo", description = "法规字段信息（JSON格式）", required = true),
     })
     @PostMapping("/create")
+    @ResponseBody
     @OperLog(operModul = "外规管理-创建外规记录", operType = "创建")
     ResponseEntity<ResponseVO> create(@RequestParam("file")MultipartFile file,@RequestParam("info")String jsonInfo) {
         //解析 json 对象
@@ -132,6 +145,7 @@ public class ExternalRegulationController {
             @Parameter(name = "jsonInfo", description = "法规元描述信息（JSON格式）", required = true),
     })
     @PostMapping("/edit")
+    @ResponseBody
     @OperLog(operModul = "外规管理-修改外规记录与正文", operType = "修改")
     ResponseEntity<ResponseVO> edit(
             @RequestParam(value = "file",required = false) MultipartFile file,
@@ -163,6 +177,7 @@ public class ExternalRegulationController {
             @Parameter(name = "editRegulationVO", description = "编辑法规值对象", required = true),
     })
     @PostMapping("/editInfo")
+    @ResponseBody
     @OperLog(operModul = "外规管理-修改外规记录", operType = "修改")
     ResponseEntity<ResponseVO> edit(@RequestBody EditRegulationVO editRegulationVO) {
         return externalRegulationService.edit(null,editRegulationVO);
@@ -178,6 +193,7 @@ public class ExternalRegulationController {
             @Parameter(name = "id", description = "法规id", required = true),
     })
     @PostMapping("/delete")
+    @ResponseBody
     @OperLog(operModul = "外规管理-删除外规记录", operType = "删除")
     ResponseEntity<ResponseVO> delete(@RequestParam("id") int id) {
         return externalRegulationService.delete(id);
@@ -193,6 +209,7 @@ public class ExternalRegulationController {
             @Parameter(name = "id", description = "法规id", required = true),
     })
     @PostMapping("/issue")
+    @ResponseBody
     @OperLog(operModul = "外规管理-发布外规", operType = "修改")
     ResponseEntity<ResponseVO> issue(@RequestParam("id") int id) {
         return externalRegulationService.issue(id);
@@ -208,6 +225,7 @@ public class ExternalRegulationController {
             @Parameter(name = "id", description = "法规id", required = true),
     })
     @PostMapping("/abolish")
+    @ResponseBody
     @OperLog(operModul = "外规管理-废止外规", operType = "修改")
     ResponseEntity<ResponseVO> abolish(@RequestParam("id") int id) {
         return externalRegulationService.abolish(id);
@@ -219,6 +237,7 @@ public class ExternalRegulationController {
      */
     @Operation(summary = "外规管理-统计", description = "计算统计当前外规库的一些数据，供前端进行可视化展示")
     @GetMapping("/statistics")
+    @ResponseBody
     @OperLog(operModul = "外规管理-统计", operType = "统计")
     ResponseEntity<ResponseVO> doStatistics() {
         return externalRegulationService.doStatistics();

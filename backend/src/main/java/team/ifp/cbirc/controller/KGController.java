@@ -12,6 +12,8 @@ import team.ifp.cbirc.bl.KGService;
 import team.ifp.cbirc.util.aop.OperLog;
 import team.ifp.cbirc.vo.ResponseVO;
 
+import javax.websocket.server.PathParam;
+
 /**
  * @author GuoXinyuan
  * @date 2021/12/9
@@ -34,6 +36,16 @@ public class KGController {
     @OperLog(operModul = "外规管理-图谱", operType = "图谱")
     ResponseEntity<ResponseVO> getKGInfo(@RequestParam("id") int id) {
         return kgService.getKGInfo(id);
+    }
+
+    /**
+     * 获取版本变迁
+     * @param id
+     * @return
+     */
+    @GetMapping("/versionChange")
+    ResponseEntity<ResponseVO> versionChanges(@RequestParam("id") int id) {
+        return kgService.versionChanges(id);
     }
 
 }
