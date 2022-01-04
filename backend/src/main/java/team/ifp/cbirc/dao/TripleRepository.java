@@ -20,4 +20,6 @@ public interface TripleRepository extends JpaRepository<Triple,Integer> {
 
     List<Triple> findByTargetIdAndPredicate(int targetId,Predicate predicate);
 
+    List<Triple> findBySourceIdAndPredicate(int sourceId,Predicate predicate);
+
 }

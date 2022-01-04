@@ -104,15 +104,28 @@ public class KGServiceImpl implements KGService {
         versionChangesVO.addChanges(externalRegulation.getReleaseDate(),"发布",null,null);
         versionChangesVO.addChanges(externalRegulation.getImplementationDate(),"实施",null,null);
 
-        List<Triple> abolishList = tripleRepository.findByTargetIdAndPredicate(id, Predicate.TO_ABOLISH);
-        for (Triple triple : abolishList) {
+        List<Triple> beAbolishList = tripleRepository.findByTargetIdAndPredicate(id, Predicate.TO_ABOLISH);
+        for (Triple triple : beAbolishList) {
             Optional<ExternalRegulation> byId1 = externalRegulationRepository.findById(triple.getSourceId());
             if (!byId1.isPresent()) {
                 ResponseVO.buildInternetServerError("服务器错误");
             }
             ExternalRegulation source = byId1.get();
             String titleAndNumber = "《" + source.getTitle() + "》" + "（" + source.getNumber() + "）";
-            versionChangesVO.addChanges(source.getImplementationDate(),"使废止", source.getId(), titleAndNumber);
+            versionChangesVO.addChanges(source.getImplementationDate(),"被废止", source.getId(), titleAndNumber);
+        }
+
+        List<Triple> abolishList = tripleRepository.findBySourceIdAndPredicate(id, Predicate.TO_ABOLISH);
+        for (Triple triple: abolishList) {
+            if(triple.getTargetId() != null) {
+                Optional<ExternalRegulation> byId1 = externalRegulationRepository.findById(triple.getTargetId());
+                if (!byId1.isPresent()) {
+                    ResponseVO.buildInternetServerError("服务器错误");
+                }
+                ExternalRegulation source = byId1.get();
+                String titleAndNumber = "《" + source.getTitle() + "》" + "（" + source.getNumber() + "）";
+                versionChangesVO.addChanges(source.getImplementationDate(),"使废止", source.getId(), titleAndNumber);
+            }
         }
 
         return ResponseEntity.ok(ResponseVO.buildOK(versionChangesVO));
