@@ -72,7 +72,7 @@ public class KGServiceImpl implements KGService {
 
         //生成centerNode作为宾语产生的节点、连接、类型
         for (Triple triple: tList) {
-            buildLinks(centerNode, triple.getTargetId(), triple.getTargetTitle(),triple.getPredicate(),false,nodesSet,links,typesMap);
+            buildLinks(centerNode, triple.getSourceId(), triple.getSourceTitle(),triple.getPredicate(),false,nodesSet,links,typesMap);
         }
 
         //生成图谱
@@ -162,6 +162,8 @@ public class KGServiceImpl implements KGService {
             type2 = getTypeAndMerge(byId.get(), typesMap);
             node2.setTypeId(type2.getId());
         }
+
+        if(node2.getId() == 0) return;
 
         LinkPOJO link = new LinkPOJO();
         link.setLabel(predicate.getName());

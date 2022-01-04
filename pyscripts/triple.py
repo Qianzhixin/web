@@ -127,7 +127,7 @@ def separateTitleNumber(title_number):
 def main():
     global conn
 
-    path = 'C:\\Users\\Gorgiya\\Desktop\\data\\total.xls'
+    path = 'E:\\warehouse\\total.xls'
 
     # 初始化上位法关系
     dat = excel(path, 'Sheet1')

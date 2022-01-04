@@ -54,5 +54,5 @@ logging:
 
 myconfig:
   cors-address: http://localhost:8000
-  data-root-path: F:\warehouse\SePractice\data
-  resource-root-path: file:///f:/warehouse/SePractice/data/
+  data-root-path: E:\warehouse\result
+  resource-root-path: file:///E:/warehouse/result/
